@@ -13,6 +13,7 @@ namespace :app do
     puts "Creating app #{name} in #{directory}"
     
     run_command("git clone #{Rails.root} #{directory}")
+    run_command("git remote add #{underscore} #{directory} || git remote set-url #{underscore} #{directory}")
     
     # remove tracking with original branch
     dir_command(directory, "git remote rm origin")
