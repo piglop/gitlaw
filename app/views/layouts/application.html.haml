@@ -13,6 +13,11 @@
           %ul.nav
             %li.active
               %a{href: root_path} Home
-
+              
+      - flash.each do |kind, value|
+        .alert{class: "alert-#{kind}"}
+          %button.close{"data-dismiss" => "alert", :type => "button"} &times;
+          = value
+          
       = yield
     = javascript_include_tag "application"
