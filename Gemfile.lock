@@ -132,7 +132,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   mysql2
-  rails (= 3.2.12)
+  rails (~> 3.2.12)
   rspec-rails (~> 2.0)
   sass-rails (~> 3.2.3)
   spork-rails
