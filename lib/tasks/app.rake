@@ -6,12 +6,19 @@ namespace :app do
     underscore = get_underscore(args)
     name = underscore.camelize
     directory = get_directory(args)
+    original_name = Rails.application.class.parent_name
     
     raise "#{directory} already exists!" if File.exists?(directory)
     
     puts "Creating app #{name} in #{directory}"
     
     run_command("git clone #{Rails.root} #{directory}")
+    
+    # remove tracking with original branch
+    dir_command(directory, "git remote rm origin")
+    
+    # add the original remote to later pull changes made on the base app
+    dir_command(directory, "git remote add #{original_name.underscore} #{Rails.root}")
     
     # change the stuff
     replace_all(directory, Rails.application.class.parent_name, name)
