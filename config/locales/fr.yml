@@ -223,5 +223,5 @@ fr:
     errors:
       <<: *errors
 
-  app: "Rails Base App"
+  app: "RailsBaseApp"
   
