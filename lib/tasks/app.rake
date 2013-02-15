@@ -11,23 +11,14 @@ namespace :app do
     
     puts "Creating app #{name} in #{directory}"
     
-    run_command("cp -R #{Rails.root.join("./")} #{directory}")
-    run_command("rm -rf `find #{directory} -type d -name .git`")
-    run_command("rm -rf `find #{directory} -type f -name .DS_Store`")
-    
-    # clean up some files
-    run_command("rm #{directory}/log/*.log")          # don't need the logs
-    run_command("rm #{directory}/lib/tasks/app.rake") # don't need this file
-    run_command("rm -rf #{directory}/tmp")            # all gone from tmp
-    run_command("mkdir -p #{directory}/tmp/cache/assets")   # new rails app has this one
+    run_command("git clone #{Rails.root} #{directory}")
     
     # change the stuff
-    replace_all(directory, "Warren", name)
-    replace_all(directory, "warren", underscore)
+    replace_all(directory, Rails.application.class.parent_name, name)
+    replace_all(directory, Rails.application.class.parent_name.underscore, underscore)
     
-    dir_command(directory, "git init .")
     dir_command(directory, "git add .")
-    dir_command(directory, "git commit -a -m 'initial app commit from warren'")
+    dir_command(directory, "git commit -a -m 'renamed app to #{name}'")
   end
   
   desc "remove the given app"
