@@ -55,3 +55,4 @@ gem 'sass-rails',   '~> 3.2.3'
 gem 'secret_token_replacer', :git => 'git://github.com/digineo/secret_token_replacer.git'
 
 gem 'cancan'
+gem 'rails-cancan-bootstrap-scaffold', :git => 'git://github.com/ouvrages/rails-cancan-bootstrap-scaffold.git', :branch => "no_title"
