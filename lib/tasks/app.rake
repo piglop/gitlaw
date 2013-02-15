@@ -31,6 +31,11 @@ namespace :app do
     dir_command(directory, "rake secret:replace")
     dir_command(directory, "git add .")
     dir_command(directory, "git commit -a -m 'regenerated secret token'")
+
+    # copy .bundle if exists (see http://hmarr.com/2012/nov/08/rubies-and-bundles/)
+    if Rails.root.join(".bundle").exist?
+      run_command("cp -rl .bundle #{directory}/")
+    end
     
     dir_command(directory, "bundle")
   end
