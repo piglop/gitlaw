@@ -52,3 +52,4 @@ end
 
 gem 'haml-rails'
 gem 'sass-rails',   '~> 3.2.3'
+gem 'secret_token_replacer', :git => 'git://github.com/digineo/secret_token_replacer.git'

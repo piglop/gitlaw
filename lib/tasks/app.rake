@@ -27,6 +27,10 @@ namespace :app do
     
     dir_command(directory, "git add .")
     dir_command(directory, "git commit -a -m 'renamed app to #{name}'")
+    
+    dir_command(directory, "rake secret:replace")
+    dir_command(directory, "git add .")
+    dir_command(directory, "git commit -a -m 'regenerated secret token'")
   end
   
   desc "remove the given app"
