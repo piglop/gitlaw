@@ -1,3 +1,5 @@
+# https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/fr.yml
+
 # French translations for Ruby on Rails
 # by Christian Lescuyer (christian@flyingcoders.com)
 # contributors:
@@ -220,3 +222,6 @@ fr:
   activerecord:
     errors:
       <<: *errors
+
+  app: "Rails Base App"
+  
