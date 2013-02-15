@@ -57,3 +57,4 @@ gem 'secret_token_replacer', :git => 'git://github.com/digineo/secret_token_repl
 gem 'cancan'
 gem 'devise'
 gem 'rails-cancan-bootstrap-scaffold', :git => 'git://github.com/ouvrages/rails-cancan-bootstrap-scaffold.git', :branch => "no_title"
+gem 'bootstrap_forms'

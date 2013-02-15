@@ -168,6 +168,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass-rails
+  bootstrap_forms
   cancan
   coffee-rails (~> 3.2.1)
   devise
