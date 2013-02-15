@@ -4,14 +4,6 @@ GIT
   specs:
     secret_token_replacer (0.1.0)
 
-GIT
-  remote: git://github.com/ouvrages/rails-cancan-bootstrap-scaffold.git
-  revision: d0f3d24aa550c27e8a5c25fed9f24fd13ecea334
-  branch: no_title
-  specs:
-    rails-cancan-bootstrap-scaffold (0.0.1)
-      bootstrap_forms
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -46,8 +38,8 @@ GEM
     bootstrap-sass-rails (2.3.0.0)
       railties (>= 3.1.0)
       sass-rails (>= 3.1.0)
-    bootstrap_forms (2.0.8)
     builder (3.0.4)
+    cancan (1.6.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -158,13 +150,13 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass-rails
+  cancan
   coffee-rails (~> 3.2.1)
   haml-rails
   jquery-rails
   mysql2
   quiet_assets
   rails (~> 3.2.12)
-  rails-cancan-bootstrap-scaffold!
   rspec-rails (~> 2.0)
   sass-rails (~> 3.2.3)
   secret_token_replacer!
