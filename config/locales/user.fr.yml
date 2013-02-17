@@ -1,52 +1,52 @@
 fr:
   activerecord:
     models:
-      user: Utilisateur, utilisatrice
+      user: Utilisateur
     attributes:
       user:
         id: Identifiant
-        email: Email
-        encrypted_password: Chiffré
-        reset_password_token: Reset
-        reset_password_sent_at: Reset
-        remember_created_at: Se rappeler
-        sign_in_count: Panneau
-        current_sign_in_at: Actuel
-        last_sign_in_at: Dernier
-        current_sign_in_ip: Actuel
-        last_sign_in_ip: Dernier
+        email: e-mail
+        encrypted_password: Mot de passe chiffré
+        reset_password_token: Jeton de réinitialisation
+        reset_password_sent_at: Date du jeton de réinitialisation
+        remember_created_at: Me reconnecter automatiquement
+        sign_in_count: Nombre de connexions
+        current_sign_in_at: Date de la connexion en cours
+        last_sign_in_at: Date de dernière connexion
+        current_sign_in_ip: Adresse IP de la connexion en cours
+        last_sign_in_ip: Adresse IP de la dernière connexion
         created_at: Date de création
         updated_at: Dernière mise à jour
 
   users:
     index:
-      title: Liste des utilisateur, utilisatrices
+      title: Liste des utilisateurs
       actions: Actions
       show: Voir
       edit: &edit Modifier
       destroy: &destroy Supprimer
-      confirm: &confirm L'utilisateur, utilisatrice sera supprimé. Êtes vous sûr ?
-      new: Créer un utilisateur, utilisatrice
+      confirm: &confirm L'utilisateur sera supprimé. Êtes vous sûr ?
+      new: Créer un utilisateur
 
     edit:
-      title: "Modification de l'utilisateur, utilisatrice %{name}"
+      title: "Modification de l'utilisateur %{name}"
 
     new:
-      title: Nouveau utilisateur, utilisatrice
+      title: Nouvel utilisateur
       
     form:
-      submit: Enregistrer l'utilisateur, utilisatrice
+      submit: Enregistrer l'utilisateur
       cancel: Annuler
 
     show:
-      title: "Utilisateur, utilisatrice %{name}"
+      title: "Utilisateur %{name}"
       edit: *edit
       destroy: *destroy
       confirm: *confirm
       back: Retour
       
-    created: L'utilisateur, utilisatrice a été créé.
-    updated: L'utilisateur, utilisatrice a été modifié.
+    created: L'utilisateur a été créé.
+    updated: L'utilisateur a été modifié.
     
   navigation:
-    users: Utilisateur, utilisatrices
+    users: Utilisateurs
