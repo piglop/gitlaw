@@ -118,6 +118,7 @@ GEM
     rake (10.0.3)
     rdoc (3.12.1)
       json (~> 1.4)
+    rolify (3.2.0)
     rspec-core (2.12.2)
     rspec-expectations (2.12.1)
       diff-lcs (~> 1.1.3)
@@ -178,6 +179,7 @@ DEPENDENCIES
   quiet_assets
   rails (~> 3.2.12)
   rails-cancan-bootstrap-scaffold!
+  rolify
   rspec-rails (~> 2.0)
   sass-rails (~> 3.2.3)
   secret_token_replacer!

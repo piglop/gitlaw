@@ -58,3 +58,4 @@ gem 'cancan'
 gem 'devise'
 gem 'rails-cancan-bootstrap-scaffold', :git => 'git://github.com/ouvrages/rails-cancan-bootstrap-scaffold.git', :branch => "no_title"
 gem 'bootstrap_forms'
+gem "rolify"
