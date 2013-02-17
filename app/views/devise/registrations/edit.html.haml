@@ -8,7 +8,7 @@
         = f.email_field :email, :autofocus => true
         - if devise_mapping.confirmable? && resource.pending_reconfirmation?
           .alert.alert-warning= t(".waiting_confirmation", email: resource.unconfirmed_email)
-        = f.password_field :password, autocomplete: "off", help_block: t(".leave_blank_to_keep")
+        = f.password_field :password, autocomplete: "off", required: false, help_block: t(".leave_blank_to_keep")
         = f.password_field :password_confirmation, autocomplete: "off"
         = f.password_field :current_password, help_block: t(".current_password_required")
         

@@ -4,6 +4,12 @@ GIT
   specs:
     secret_token_replacer (0.1.0)
 
+GIT
+  remote: git://github.com/ouvrages/bootstrap_forms.git
+  revision: e238736df2f280b9c7051154b5f00378ead65b31
+  specs:
+    bootstrap_forms (2.0.8)
+
 PATH
   remote: ../rails-cancan-bootstrap-scaffold
   specs:
@@ -46,7 +52,6 @@ GEM
     bootstrap-sass-rails (2.3.0.0)
       railties (>= 3.1.0)
       sass-rails (>= 3.1.0)
-    bootstrap_forms (2.0.8)
     builder (3.0.4)
     cancan (1.6.9)
     coffee-rails (3.2.2)
@@ -173,7 +178,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass-rails
-  bootstrap_forms
+  bootstrap_forms!
   cancan
   coffee-rails (~> 3.2.1)
   crummy (~> 1.7.0)
