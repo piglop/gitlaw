@@ -20,6 +20,8 @@
           %ul.nav.pull-right
             - if current_user
               %li
+                = link_to t("navigation.edit_registration"), edit_user_registration_path
+              %li
                 = link_to t("navigation.log_out"), destroy_user_session_path, :method => :delete
             - else
               %li
