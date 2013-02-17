@@ -42,6 +42,8 @@ fr:
     sessions:
       signed_in: Connecté avec succès.
       signed_out: Déconnecté avec succès.
+      new:
+        submit: Connexion
     unlocks:
       send_instructions: Vous allez recevoir un email sous quelques minutes contenant les instructions nécessaires au débloquage de votre compte.
       send_paranoid_instructions: Si votre compte existe, vous recevrez un email indiquant comment le déverrouiller sous quelques minutes.
@@ -56,3 +58,4 @@ fr:
       not_saved:
         one: ! '%{count} erreur a empéché ce %{resource} d''être enregistré :'
         other: ! '%{count} erreurs ont empéché ce %{resource} d''être enregistré :'
+      
