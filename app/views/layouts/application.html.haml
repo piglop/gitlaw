@@ -1,7 +1,7 @@
 !!!
 %html{lang: I18n.locale}
   %head
-    %title= content_for?(:title) ? "#{content_for(:title)} - #{t("app")}" : t("app")
+    %title= content_for?(:title) ? "#{content_for(:title)} - #{t("app")}".html_safe : t("app")
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}/
     = stylesheet_link_tag    "application", :media => "all"
     = csrf_meta_tags
@@ -21,6 +21,16 @@
             - else
               %li
                 = link_to t("navigation.log_in"), new_user_session_path
+
+      - render_crumbs do |crumbs|
+        %ul.breadcrumb
+          - crumbs.each_with_index do |crumb, index|
+            - if index < crumbs.size - 1
+              %li
+                = link_to *crumb
+                %span.divider /
+            - else
+              %li.active= crumb[0]
 
       - flash.each do |kind, value|
         .alert{class: "alert-#{kind}"}

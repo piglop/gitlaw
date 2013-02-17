@@ -57,6 +57,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
+    crummy (1.7.0)
     daemons (1.1.9)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
@@ -172,6 +173,7 @@ DEPENDENCIES
   bootstrap_forms
   cancan
   coffee-rails (~> 3.2.1)
+  crummy (~> 1.7.0)
   devise
   haml-rails
   jquery-rails
