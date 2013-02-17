@@ -39,6 +39,9 @@ fr:
       signed_up_but_unconfirmed: Un message avec un lien de confirmation vous a été envoyé par mail. Veuillez suivre ce lien pour activer votre compte.
       update_needs_confirmation: Vous avez modifié votre compte avec succès, mais nous devons vérifier votre nouvelle adresse email. Veuillez consulter vos emails et cliquer sur le lien de confirmation pour finalizer votre nouvelle adresse.
       updated: Votre compte a été modifié avec succès.
+      new:
+        title: Création d'un compte
+        submit: Créer le compte
     sessions:
       signed_in: Connecté avec succès.
       signed_out: Déconnecté avec succès.

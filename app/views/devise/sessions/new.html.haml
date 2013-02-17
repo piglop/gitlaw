@@ -1,4 +1,5 @@
-- add_crumb t(".title")
+- content_for :title, t('.title')
+- add_crumb content_for(:title)
 
 .row
   .span8

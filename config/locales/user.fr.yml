@@ -19,6 +19,7 @@ fr:
         updated_at: Dernière mise à jour
         remember_me: Connexion automatique
         password: Mot de passe
+        password_confirmation: Confirmation du mot de passe
 
   users:
     index:
