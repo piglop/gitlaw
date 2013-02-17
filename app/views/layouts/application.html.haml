@@ -11,9 +11,17 @@
         .navbar-inner
           %a.brand{href: root_path}= t("app")
           %ul.nav
-            %li.active
-              %a{href: root_path} Home
+            %li{class: params[:controller] == "home" ? "active" : ""}
+              %a{href: root_path}= t("navigation.home")
               
+          %ul.nav.pull-right
+            - if current_user
+              %li
+                = link_to t("navigation.log_out"), destroy_user_session_path, :method => :delete
+            - else
+              %li
+                = link_to t("navigation.log_in"), new_user_session_path
+
       - flash.each do |kind, value|
         .alert{class: "alert-#{kind}"}
           %button.close{"data-dismiss" => "alert", :type => "button"} &times;

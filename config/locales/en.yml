@@ -206,3 +206,7 @@ en:
       <<: *errors
 
   app: "RailsBaseApp"
+  navigation:
+    home: Home
+    log_in: Log in
+    log_out: Log out

@@ -225,3 +225,7 @@ fr:
 
   app: "RailsBaseApp"
   
+  navigation:
+    home: Accueil
+    log_in: Connexion
+    log_out: Déconnexion
