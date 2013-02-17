@@ -230,3 +230,8 @@ fr:
     log_in: Connexion
     log_out: Déconnexion
     edit_registration: Compte
+
+  bootstrap_forms:
+    errors:
+      header: Des erreurs ont bloqué l'enregistrement
+        

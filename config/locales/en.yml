@@ -211,4 +211,7 @@ en:
     log_in: Log in
     log_out: Log out
     edit_registration: Account
-    
+
+  bootstrap_forms:
+    errors:
+      header: Some errors blocked your request
