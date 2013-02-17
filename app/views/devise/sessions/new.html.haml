@@ -1,12 +1,15 @@
 - add_crumb t(".title")
 
-= bootstrap_form_for resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' } do |f|
-  = f.email_field :email, :autofocus => true
-  = f.password_field :password
-  - if devise_mapping.rememberable?
-    = f.check_box :remember_me
-    
-  .form-actions
-    = f.submit t('.submit'), :class => 'btn btn-primary'
-
-= render "devise/shared/links"
+.row
+  .span8
+    .well
+      = bootstrap_form_for resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' } do |f|
+        = f.email_field :email, :autofocus => true
+        = f.password_field :password
+        - if devise_mapping.rememberable?
+          = f.check_box :remember_me
+          
+        .form-actions
+          = f.submit t('.submit'), :class => 'btn btn-primary'
+  .span4
+    = render "devise/shared/links"
