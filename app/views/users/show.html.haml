@@ -1,7 +1,7 @@
 - content_for(:title, t(".title", name: @user.id))
 - add_crumb content_for(:title)
 
-.row-fluid
+.row
   .span12
     %dl.dl-horizontal
       %dt= @user.class.human_attribute_name(:email)
