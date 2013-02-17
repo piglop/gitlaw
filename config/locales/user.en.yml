@@ -27,6 +27,7 @@ en:
       destroy: &destroy Delete
       confirm: &confirm The user will by deleted. Are you sure?
       new: Add an user
+      none: The list is empty.
 
     edit:
       title: "Modification of user %{name}"

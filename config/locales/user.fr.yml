@@ -27,6 +27,7 @@ fr:
       destroy: &destroy Supprimer
       confirm: &confirm L'utilisateur sera supprimé. Êtes vous sûr ?
       new: Créer un utilisateur
+      none: La liste est vide.
 
     edit:
       title: "Modification de l'utilisateur %{name}"

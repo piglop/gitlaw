@@ -2,24 +2,26 @@
 
 .row-fluid
   .span12
-    %table.table.table-striped
-      %thead
-        %tr
-          %th= User.human_attribute_name(:email)
-          %th= User.human_attribute_name(:sign_in_count)
-          %th= User.human_attribute_name(:current_sign_in_at)
-          %th= User.human_attribute_name(:last_sign_in_at)
-          %th= t('.actions')
-      %tbody
-        - @users.each do |user|
+    - if @users
+      %table.table.table-striped
+        %thead
           %tr
-            %td= user.email
-            %td= user.sign_in_count
-            %td= l user.current_sign_in_at
-            %td= l user.last_sign_in_at
-            %td
-              = link_to t('.show'), user_path(user), :class => 'btn btn-mini'
-              = link_to t('.edit'), edit_user_path(user), :class => 'btn btn-mini' if can? :update, user
-              = link_to t('.destroy'), user_path(user), :method => :delete, :confirm => t('.confirm'), :class => 'btn btn-mini btn-danger' if can? :destroy, user
-
+            %th= User.human_attribute_name(:email)
+            %th= User.human_attribute_name(:sign_in_count)
+            %th= User.human_attribute_name(:current_sign_in_at)
+            %th= User.human_attribute_name(:last_sign_in_at)
+            %th= t('.actions')
+        %tbody
+          - @users.each do |user|
+            %tr
+              %td= user.email
+              %td= user.sign_in_count
+              %td= l user.current_sign_in_at
+              %td= l user.last_sign_in_at
+              %td
+                = link_to t('.show'), user_path(user), :class => 'btn btn-mini'
+                = link_to t('.edit'), edit_user_path(user), :class => 'btn btn-mini' if can? :update, user
+                = link_to t('.destroy'), user_path(user), :method => :delete, :confirm => t('.confirm'), :class => 'btn btn-mini btn-danger' if can? :destroy, user
+    - else
+      %p.alert.alert-warning= t(".none")
     = link_to t('.new'), new_user_path, :class => 'btn btn-primary' if can? :create, ::User
