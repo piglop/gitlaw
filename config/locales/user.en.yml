@@ -1,0 +1,52 @@
+en:
+  activerecord:
+    models:
+      user: User
+    attributes:
+      user:
+        id: ID
+        email: Email
+        encrypted_password: Encrypted password
+        reset_password_token: Reset password token
+        reset_password_sent_at: Reset password sent at
+        remember_created_at: Remember created at
+        sign_in_count: Sign in count
+        current_sign_in_at: Current sign in at
+        last_sign_in_at: Last sign in at
+        current_sign_in_ip: Current sign in ip
+        last_sign_in_ip: Last sign in ip
+        created_at: Creation date
+        updated_at: Last update
+  
+  users:
+    index:
+      title: List of users
+      actions: Actions
+      show: Show
+      edit: &edit Edit
+      destroy: &destroy Delete
+      confirm: &confirm The user will by deleted. Are you sure?
+      new: Add an user
+
+    edit:
+      title: "Modification of user %{name}"
+
+    new:
+      title: New user
+
+    form:
+      submit: Save the user
+      cancel: Cancel
+      
+    show:
+      title: "User %{name}"
+      edit: *edit
+      destroy: *destroy
+      confirm: *confirm
+      back: Back
+
+    created: The user was successfully created.
+    updated: The user was successfully updated.
+      
+  navigation:
+    users: Users
