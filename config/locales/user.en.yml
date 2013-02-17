@@ -18,6 +18,7 @@ en:
         created_at: Creation date
         updated_at: Last update
         remember_me: Remember me
+        password: Password
   
   users:
     index:

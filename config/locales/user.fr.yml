@@ -18,6 +18,7 @@ fr:
         created_at: Date de création
         updated_at: Dernière mise à jour
         remember_me: Connexion automatique
+        password: Mot de passe
 
   users:
     index:
