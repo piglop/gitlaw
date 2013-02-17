@@ -43,6 +43,7 @@ fr:
       signed_in: Connecté avec succès.
       signed_out: Déconnecté avec succès.
       new:
+        title: Connexion
         submit: Connexion
     unlocks:
       send_instructions: Vous allez recevoir un email sous quelques minutes contenant les instructions nécessaires au débloquage de votre compte.

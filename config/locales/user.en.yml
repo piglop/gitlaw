@@ -17,6 +17,7 @@ en:
         last_sign_in_ip: Last sign in IP
         created_at: Creation date
         updated_at: Last update
+        remember_me: Remember me
   
   users:
     index:
