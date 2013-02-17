@@ -42,6 +42,16 @@ fr:
       new:
         title: Création d'un compte
         submit: Créer le compte
+      edit:
+        title: Modification du compte
+        submit: Modifier le compte
+        leave_blank_to_keep: "Laissez vide si vous ne voulez pas le changer"
+        current_password_required: Votre ancien mot de passe est nécessaire pour confirmer les changements
+        cancel_my_account:
+          title: Supprimer mon compte
+          intro: Vous voulez nous quitter ?
+          button: Supprimer mon compte
+          confirm: "Votre compte sera supprimé. Êtes vous sûr ?"
     sessions:
       signed_in: Connecté avec succès.
       signed_out: Déconnecté avec succès.

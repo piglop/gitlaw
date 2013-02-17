@@ -20,6 +20,7 @@ fr:
         remember_me: Connexion automatique
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
+        current_password: Mot de passe actuel
 
   users:
     index:
