@@ -6,9 +6,9 @@
     = stylesheet_link_tag    "application", :media => "all"
     = csrf_meta_tags
   %body
-    .container
-      .navbar
-        .navbar-inner
+    %header.navbar
+      %nav.navbar-inner
+        .container
           %a.brand{href: root_path}= t("app")
           %ul.nav
             %li{class: params[:controller] == "home" ? "active" : ""}
@@ -27,20 +27,22 @@
               %li
                 = link_to t("navigation.log_in"), new_user_session_path
 
-      - render_crumbs do |crumbs|
-        %ul.breadcrumb
-          - crumbs.each_with_index do |crumb, index|
-            - if index < crumbs.size - 1
-              %li
-                = link_to *crumb
-                %span.divider /
-            - else
-              %li.active= crumb[0]
+    #main{:role => "main"}
+      .container
+        - render_crumbs do |crumbs|
+          %ul.breadcrumb
+            - crumbs.each_with_index do |crumb, index|
+              - if index < crumbs.size - 1
+                %li
+                  = link_to *crumb
+                  %span.divider /
+              - else
+                %li.active= crumb[0]
 
-      - flash.each do |kind, value|
-        .alert{class: "alert-#{kind}"}
-          %button.close{"data-dismiss" => "alert", :type => "button"} &times;
-          = value
-          
-      = yield
+        - flash.each do |kind, value|
+          .alert{class: "alert-#{kind}"}
+            %button.close{"data-dismiss" => "alert", :type => "button"} &times;
+            = value
+            
+        = yield
     = javascript_include_tag "application"
