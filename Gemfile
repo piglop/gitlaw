@@ -62,8 +62,8 @@ gem 'cancan'
 gem "rolify"
 
 gem 'rails-cancan-bootstrap-scaffold',
-    :path => "../rails-cancan-bootstrap-scaffold"
-    #:git => 'git://github.com/ouvrages/rails-cancan-bootstrap-scaffold.git', :branch => "no_title"
+    #:path => "../rails-cancan-bootstrap-scaffold"
+    :git => 'git://github.com/ouvrages/rails-cancan-bootstrap-scaffold.git', :branch => "rails_base_app"
 gem 'bootstrap_forms',
     #:path => '../bootstrap_forms'
     :git => 'git://github.com/ouvrages/bootstrap_forms.git'
