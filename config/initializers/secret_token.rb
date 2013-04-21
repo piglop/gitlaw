@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Gitlaw::Application.config.secret_token = '5b46d788255afd2d09ef87f4042bea4d38d9c1a91667bfc08e553e86aa3349f70b53c70bc61f6beaab51548a2eafee16bb06dc622997794c32c44b84e24ca831'
+Gitlaw::Application.config.secret_token = 'b64c90e137487e2ac6eb345409a3d984023e15b9e3280903fc67c7c976e487d9fd7510a2258130c8a01082513a2c4689a210d3c7e0c422f0e440276e1cd752f5'
