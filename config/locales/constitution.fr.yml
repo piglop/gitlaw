@@ -52,3 +52,5 @@ fr:
     
   navigation:
     constitutions: Constitutions
+
+  must_be_logged_into_access_this_page: Vous devez être connecté pour accéder à cette page.

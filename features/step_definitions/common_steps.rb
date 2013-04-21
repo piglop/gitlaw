@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 Before do
   load Rails.root.join('db', 'seeds.rb')
 end
@@ -15,7 +17,10 @@ Then(/^I should see "(.*?)"$/) do |arg1|
 end
 
 When(/^I fill the sign up form with "(.*?)" and "(.*?)"$/) do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+  fill_in "user_email", with: arg1
+  fill_in "user_password", with: arg2
+  fill_in "user_password_confirmation", with: arg2
+  click_button "Créer le compte"
 end
 
 Then(/^I should see a text area containing "(.*?)"$/) do |arg1|
