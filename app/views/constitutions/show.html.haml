@@ -12,5 +12,6 @@
 
     .form-actions
       = link_to t('.back'), constitutions_path, :class => 'btn'
+      = link_to t('.new_version'), new_constitution_path(base_id: @constitution.id), :class => 'btn btn-primary'
       = link_to t('.edit'), edit_constitution_path(@constitution), :class => 'btn' if can? :update, @constitution
       = link_to t('.destroy'), constitution_path(@constitution), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @constitution

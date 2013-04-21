@@ -45,6 +45,7 @@ fr:
       destroy: *destroy
       confirm: *confirm
       back: Retour
+      new_version: "Créer une autre version"
       
     created: La constitution a été créé.
     updated: La constitution a été modifiée.
