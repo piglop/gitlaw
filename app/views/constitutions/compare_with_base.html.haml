@@ -8,10 +8,7 @@
       %dd= @constitution.title
     %dl.dl-horizontal
       %dt= @constitution.class.human_attribute_name(:text)
-      %dd= @constitution.text
-    %dl.dl-horizontal
-      %dt= t(".base_text")
-      %dd= @constitution.base.text
+      %dd!= Diffy::Diff.new(@constitution.base.text, @constitution.text).to_s(:html)
 
     .form-actions
       = link_to t('.back'), constitutions_path, :class => 'btn'
