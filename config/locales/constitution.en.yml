@@ -1,0 +1,45 @@
+en:
+  activerecord:
+    models:
+      constitution: Constitution
+    attributes:
+      constitution:
+        id: ID
+        title: 
+        text: 
+        created_at: Creation date
+        updated_at: Last update
+  
+  constitutions:
+    index:
+      title: List of constitutions
+      actions: Actions
+      show: Show
+      edit: &edit Edit
+      destroy: &destroy Delete
+      confirm: &confirm The constitution will by deleted. Are you sure?
+      new: Add a constitution
+      empty: The list is empty.
+
+    edit:
+      title: "Modification of constitution %{name}"
+
+    new:
+      title: New constitution
+
+    form:
+      submit: Save the constitution
+      cancel: Cancel
+      
+    show:
+      title: "Constitution %{name}"
+      edit: *edit
+      destroy: *destroy
+      confirm: *confirm
+      back: Back
+
+    created: The constitution was successfully created.
+    updated: The constitution was successfully updated.
+      
+  navigation:
+    constitutions: Constitutions
