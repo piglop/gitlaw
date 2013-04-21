@@ -1,0 +1,24 @@
+- content_for :title, t('.title')
+
+.row
+  .span12
+    - if @law_texts.blank?
+      %p.alert.alert-notice= t(".empty")
+    - else
+      %table.table.table-striped
+        %thead
+          %tr
+            %th= LawText.human_attribute_name(:title)
+            %th= LawText.human_attribute_name(:text)
+            %th= t('.actions')
+        %tbody
+          - @law_texts.each do |law_text|
+            %tr
+              %td= law_text.title
+              %td= law_text.text
+              %td
+                = link_to t('.show'), law_text_path(law_text), :class => 'btn btn-mini'
+                = link_to t('.edit'), edit_law_text_path(law_text), :class => 'btn btn-mini' if can? :update, law_text
+                = link_to t('.destroy'), law_text_path(law_text), :method => :delete, :confirm => t('.confirm'), :class => 'btn btn-mini btn-danger' if can? :destroy, law_text
+
+    = link_to t('.new'), new_law_text_path, :class => 'btn btn-primary' if can? :create, ::LawText

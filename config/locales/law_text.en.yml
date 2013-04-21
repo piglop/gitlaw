@@ -1,0 +1,45 @@
+en:
+  activerecord:
+    models:
+      law_text: Law text
+    attributes:
+      law_text:
+        id: ID
+        title: 
+        text: 
+        created_at: Creation date
+        updated_at: Last update
+  
+  law_texts:
+    index:
+      title: List of law texts
+      actions: Actions
+      show: Show
+      edit: &edit Edit
+      destroy: &destroy Delete
+      confirm: &confirm The law text will by deleted. Are you sure?
+      new: Add a law text
+      empty: The list is empty.
+
+    edit:
+      title: "Modification of law text %{name}"
+
+    new:
+      title: New law text
+
+    form:
+      submit: Save the law text
+      cancel: Cancel
+      
+    show:
+      title: "Law text %{name}"
+      edit: *edit
+      destroy: *destroy
+      confirm: *confirm
+      back: Back
+
+    created: The law text was successfully created.
+    updated: The law text was successfully updated.
+      
+  navigation:
+    law_texts: Law texts
