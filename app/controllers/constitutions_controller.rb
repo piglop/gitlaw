@@ -29,8 +29,9 @@ class ConstitutionsController < ApplicationController
   def new
     if params[:base_id]
       @base = Constitution.accessible_by(current_ability).where(id: params[:base_id]).first
+      @constitution.assign_attributes @base.attributes.select { |name, value| Constitution.accessible_attributes.include?(name) }
+      @constitution.base_id = @base.id
     end
-    @constitution.assign_attributes @base.attributes.select { |name, value| Constitution.accessible_attributes.include?(name) }
     
     respond_to do |format|
       format.html # new.html.erb
@@ -79,5 +80,8 @@ class ConstitutionsController < ApplicationController
       format.html { redirect_to constitutions_url }
       format.json { head :no_content }
     end
+  end
+  
+  def compare_with_base
   end
 end

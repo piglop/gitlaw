@@ -9,6 +9,9 @@
     %dl.dl-horizontal
       %dt= @constitution.class.human_attribute_name(:text)
       %dd= @constitution.text
+    %dl.dl-horizontal
+      %dt= t(".base_text")
+      %dd= @constitution.base.text
 
     .form-actions
       = link_to t('.back'), constitutions_path, :class => 'btn'

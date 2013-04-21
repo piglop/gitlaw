@@ -47,6 +47,7 @@ fr:
       confirm: *confirm
       back: Retour
       new_version: "Créer une autre version"
+      compare_with_base: "Comparer avec l'originale"
       
     created: La constitution a été créé.
     updated: La constitution a été modifiée.
