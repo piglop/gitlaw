@@ -37,7 +37,7 @@ fr:
       title_with_base: Création d'une version alternative
       
     form:
-      submit: Enregistrer la constitution
+      submit: Enregistrer
       cancel: Annuler
 
     show:
