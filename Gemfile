@@ -68,5 +68,5 @@ gem 'ouvrages_scaffold'
 gem 'bootstrap_forms', :git => 'git://github.com/ouvrages/bootstrap_forms.git'
 
 gem 'crummy', '~> 1.7.0'
-gem 'diffy', path: 'vendor/diffy'
+gem 'diffy', git: 'git://github.com/piglop/diffy.git', branch: 'split_words'
 

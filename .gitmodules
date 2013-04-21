@@ -1,3 +1,0 @@
-[submodule "vendor/diffy"]
-	path = vendor/diffy
-	url = git://github.com/samg/diffy.git

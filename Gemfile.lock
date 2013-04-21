@@ -10,8 +10,10 @@ GIT
   specs:
     bootstrap_forms (2.0.8)
 
-PATH
-  remote: vendor/diffy
+GIT
+  remote: git://github.com/piglop/diffy.git
+  revision: 80717fb638f24c5862f84d266266fe59072ea356
+  branch: split_words
   specs:
     diffy (2.1.4)
 
