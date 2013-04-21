@@ -50,8 +50,9 @@ gem 'jquery-rails'
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem "spork-rails"
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
 end
 
 gem 'haml-rails'
