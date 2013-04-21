@@ -1,6 +1,4 @@
 Gitlaw::Application.routes.draw do
-  resources :law_texts
-
   resources :users
 
   devise_for :users, path: 'auth', controllers: {registrations: "registrations"}

@@ -1,7 +1,0 @@
-= bootstrap_form_for @law_text, :html => { :class => 'form-horizontal' } do |f|
-  = f.text_field :title
-  = f.text_area :text
-  
-  .form-actions
-    = f.submit t('.submit'), :class => 'btn btn-primary'
-    = link_to t('.cancel'), law_texts_path, :class => 'btn'
