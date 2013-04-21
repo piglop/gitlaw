@@ -52,6 +52,7 @@ group :test, :development do
   gem "spork-rails"
   gem 'cucumber-rails'
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
 end
 
 gem 'haml-rails'
