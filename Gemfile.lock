@@ -10,6 +10,11 @@ GIT
   specs:
     bootstrap_forms (2.0.8)
 
+PATH
+  remote: vendor/diffy
+  specs:
+    diffy (2.1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -79,7 +84,6 @@ GEM
       railties (~> 3.1)
       warden (~> 1.2.1)
     diff-lcs (1.2.4)
-    diffy (2.1.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (1.4.0)
@@ -217,7 +221,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   devise
-  diffy
+  diffy!
   factory_girl_rails
   haml-rails
   jquery-rails

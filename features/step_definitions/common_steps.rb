@@ -34,5 +34,5 @@ When(/^I replace "(.*?)" with "(.*?)"$/) do |arg1, arg2|
 end
 
 Then(/^the word "(.*?)" should be highlighted$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+  all("strong").map(&:text).join(" ").should include(arg1)
 end
