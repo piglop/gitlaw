@@ -188,22 +188,22 @@ Titre V - Des rapports entre le gouvernement et le Parlement
 
 Article 34
 La loi fixe les règles concernant :
-les droits civiques et les garanties fondamentales accordées aux citoyens pour l'exercice des libertés publiques ; la liberté, le pluralisme et l'indépendance des médias ; les sujétions imposées par la Défense nationale aux citoyens en leur personne et en leurs biens ;
-la nationalité, l'état et la capacité des personnes, les régimes matrimoniaux, les successions et libéralités ;
-la détermination des crimes et délits ainsi que les peines qui leur sont applicables ; la procédure pénale ; l'amnistie ; la création de nouveaux ordres de juridiction et le statut des magistrats ;
-l'assiette, le taux et les modalités de recouvrement des impositions de toutes natures ; le régime d'émission de la monnaie.
+- les droits civiques et les garanties fondamentales accordées aux citoyens pour l'exercice des libertés publiques ; la liberté, le pluralisme et l'indépendance des médias ; les sujétions imposées par la Défense nationale aux citoyens en leur personne et en leurs biens ;
+- la nationalité, l'état et la capacité des personnes, les régimes matrimoniaux, les successions et libéralités ;
+- la détermination des crimes et délits ainsi que les peines qui leur sont applicables ; la procédure pénale ; l'amnistie ; la création de nouveaux ordres de juridiction et le statut des magistrats ;
+- l'assiette, le taux et les modalités de recouvrement des impositions de toutes natures ; le régime d'émission de la monnaie.
 La loi fixe également les règles concernant :
-le régime électoral des assemblées parlementaires, des assemblées locales et des instances représentatives des Français établis hors de France ainsi que les conditions d'exercice des mandats électoraux et des fonctions électives des membres des assemblées délibérantes des collectivités territoriales ;
-la création de catégories d'établissements publics ;
-les garanties fondamentales accordées aux fonctionnaires civils et militaires de l'État.
-les nationalisations d'entreprises et les transferts de propriété d'entreprises du secteur public au secteur privé.
+- le régime électoral des assemblées parlementaires, des assemblées locales et des instances représentatives des Français établis hors de France ainsi que les conditions d'exercice des mandats électoraux et des fonctions électives des membres des assemblées délibérantes des collectivités territoriales ;
+- la création de catégories d'établissements publics ;
+- les garanties fondamentales accordées aux fonctionnaires civils et militaires de l'État.
+- les nationalisations d'entreprises et les transferts de propriété d'entreprises du secteur public au secteur privé.
 La loi détermine les principes fondamentaux :
-de l'organisation générale de la défense nationale ;
-de la libre administration des collectivités territoriales, de leurs compétences et de leurs ressources ;
-de l'enseignement ;
-de la préservation de l'environnement ;
-du régime de la propriété, des droits réels et des obligations civiles et commerciales ;
-du droit du travail, du droit syndical et de la sécurité sociale.
+- de l'organisation générale de la défense nationale ;
+- de la libre administration des collectivités territoriales, de leurs compétences et de leurs ressources ;
+- de l'enseignement ;
+- de la préservation de l'environnement ;
+- du régime de la propriété, des droits réels et des obligations civiles et commerciales ;
+- du droit du travail, du droit syndical et de la sécurité sociale.
 Les lois de finances déterminent les ressources et les charges de l'État dans les conditions et sous les réserves prévues par une loi organique.
 Les lois de financement de la sécurité sociale déterminent les conditions générales de son équilibre financier et, compte tenu de leurs prévisions de recettes, fixent ses objectifs de dépenses, dans les conditions et sous les réserves prévues par une loi organique.
 Des lois de programmation déterminent les objectifs de l'action de l'État.
@@ -552,10 +552,10 @@ Les mesures nécessaires à l'organisation du scrutin sont prises par décret en
 
 Article 77
 Après approbation de l'accord lors de la consultation prévue à l'article 76, la loi organique, prise après avis de l'assemblée délibérante de la Nouvelle-Calédonie, détermine, pour assurer l'évolution de la Nouvelle-Calédonie dans le respect des orientations définies par cet accord et selon les modalités nécessaires à sa mise en œuvre :
-les compétences de l'État qui seront transférées, de façon définitive, aux institutions de la Nouvelle-Calédonie, l'échelonnement et les modalités de ces transferts, ainsi que la répartition des charges résultant de ceux-ci ;
-les règles d'organisation et de fonctionnement des institutions de la Nouvelle-Calédonie et notamment les conditions dans lesquelles certaines catégories d'actes de l'assemblée délibérante de la Nouvelle-Calédonie pourront être soumises avant publication au contrôle du Conseil constitutionnel ;
-les règles relatives à la citoyenneté, au régime électoral, à l'emploi et au statut civil coutumier ;
-les conditions et les délais dans lesquels les populations intéressées de la Nouvelle-Calédonie seront amenées à se prononcer sur l'accession à la pleine souveraineté.
+- les compétences de l'État qui seront transférées, de façon définitive, aux institutions de la Nouvelle-Calédonie, l'échelonnement et les modalités de ces transferts, ainsi que la répartition des charges résultant de ceux-ci ;
+- les règles d'organisation et de fonctionnement des institutions de la Nouvelle-Calédonie et notamment les conditions dans lesquelles certaines catégories d'actes de l'assemblée délibérante de la Nouvelle-Calédonie pourront être soumises avant publication au contrôle du Conseil constitutionnel ;
+- les règles relatives à la citoyenneté, au régime électoral, à l'emploi et au statut civil coutumier ;
+- les conditions et les délais dans lesquels les populations intéressées de la Nouvelle-Calédonie seront amenées à se prononcer sur l'accession à la pleine souveraineté.
 Les autres mesures nécessaires à la mise en œuvre de l'accord mentionné à l'article 76 sont définies par la loi.
 Pour la définition du corps électoral appelé à élire les membres des assemblées délibérantes de la Nouvelle-Calédonie et des provinces, le tableau auquel se réfèrent l’accord mentionné à l’article 76 et les articles 188 et 189 de la loi organique n° 99-209 du 19 mars 1999 relative à la Nouvelle-Calédonie est le tableau dressé à l’occasion du scrutin prévu audit article 76 et comprenant les personnes non admises à y participer.
 
