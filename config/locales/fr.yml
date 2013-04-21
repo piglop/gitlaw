@@ -223,7 +223,7 @@ fr:
     errors:
       <<: *errors
 
-  app: "RailsBaseApp"
+  app: "Gitlaw"
   
   navigation:
     home: Accueil

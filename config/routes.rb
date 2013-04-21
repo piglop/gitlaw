@@ -1,4 +1,4 @@
-RailsBaseApp::Application.routes.draw do
+Gitlaw::Application.routes.draw do
   resources :users
 
   devise_for :users, path: 'auth', controllers: {registrations: "registrations"}
