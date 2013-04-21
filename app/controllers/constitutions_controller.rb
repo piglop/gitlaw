@@ -30,6 +30,7 @@ class ConstitutionsController < ApplicationController
     if params[:base_id]
       @base = Constitution.accessible_by(current_ability).where(id: params[:base_id]).first
     end
+    @constitution.assign_attributes @base.attributes.select { |name, value| Constitution.accessible_attributes.include?(name) }
     
     respond_to do |format|
       format.html # new.html.erb

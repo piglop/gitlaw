@@ -24,7 +24,7 @@ When(/^I fill the sign up form with "(.*?)" and "(.*?)"$/) do |arg1, arg2|
 end
 
 Then(/^I should see a text area containing "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+  find("textarea").should have_content(arg1)
 end
 
 When(/^I replace "(.*?)" with "(.*?)"$/) do |arg1, arg2|
