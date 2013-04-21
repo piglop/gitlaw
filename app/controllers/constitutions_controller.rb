@@ -27,6 +27,10 @@ class ConstitutionsController < ApplicationController
   # GET /constitutions/new
   # GET /constitutions/new.json
   def new
+    if params[:base_id]
+      @base = Constitution.accessible_by(current_ability).where(id: params[:base_id]).first
+    end
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @constitution }

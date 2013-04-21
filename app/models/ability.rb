@@ -9,6 +9,7 @@ class Ability
     else
       can :read, :all
       cannot :read, User
+      can :manage, Constitution
     end
   end
 end

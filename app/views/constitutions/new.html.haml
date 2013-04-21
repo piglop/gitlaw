@@ -1,4 +1,7 @@
-- content_for :title, t('.title')
+- if @base
+  - content_for(:title, t(".title_with_base", base_name: @base.title))
+- else
+  - content_for(:title, t(".title"))
 - add_crumb content_for(:title)
 
 .row
