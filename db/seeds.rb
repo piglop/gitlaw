@@ -8,6 +8,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-french_constitution = LawText.where(title: "Constitution française").first_or_initialize
+french_constitution = Constitution.where(title: "Constitution française").first_or_initialize
 french_constitution.text = Rails.root.join('db', 'french_constitution.txt').read
 french_constitution.save!
