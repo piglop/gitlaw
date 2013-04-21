@@ -50,6 +50,8 @@ gem 'jquery-rails'
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem "spork-rails"
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
 end
 
 gem 'haml-rails'
