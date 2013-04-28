@@ -1,5 +1,4 @@
 class ConstitutionsController < ApplicationController
-  before_filter :require_user, only: [:new]
   load_and_authorize_resource
 
   before_filter do

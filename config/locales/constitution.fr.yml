@@ -13,8 +13,8 @@ fr:
     attributes:
       constitution:
         id: Identifiant
-        title: 
-        text: 
+        title: Titre
+        text: Texte
         created_at: Date de création
         updated_at: Dernière mise à jour
 
@@ -34,7 +34,7 @@ fr:
 
     new:
       title: Nouvelle constitution
-      title_with_base: Création d'une version alternative
+      title_with_base: Proposition d'une amélioration
       
     form:
       submit: Enregistrer
@@ -46,7 +46,7 @@ fr:
       destroy: *destroy
       confirm: *confirm
       back: Retour
-      new_version: "Créer une autre version"
+      new_version: "Proposer une amélioration"
       compare_with_base: "Comparer avec l'originale"
       
     created: La constitution a été créé.

@@ -9,7 +9,7 @@ class Ability
     else
       can :read, :all
       cannot :read, User
-      can :manage, Constitution
+      can [:create, :compare_with_base], Constitution
     end
   end
 end
