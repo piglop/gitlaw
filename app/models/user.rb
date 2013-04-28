@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   
   has_many :constitutions, inverse_of: :user
   
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  
   def display_name
     name.presence || I18n.t(:anonmyous)
   end

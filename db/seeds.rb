@@ -10,9 +10,10 @@
 
 france = User.seed :name do |s|
   s.name = "France"
+  s.slug = "france"
 end.first
 
-french_constitution = Constitution.seed :title do |s|
+french_constitution = Constitution.seed :title, :user_id do |s|
   s.title = "Constitution"
   s.text = Rails.root.join('db', 'french_constitution.txt').read
   s.user = france

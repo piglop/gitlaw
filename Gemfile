@@ -71,3 +71,4 @@ gem 'crummy', '~> 1.7.0'
 gem 'diffy', git: 'git://github.com/piglop/diffy.git', branch: 'split_words'
 
 gem 'seed-fu'
+gem 'friendly_id', "~> 4.0.9"
