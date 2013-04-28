@@ -8,9 +8,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+france = User.seed :name do |s|
+  s.name = "France"
+end.first
+
 french_constitution = Constitution.seed :title do |s|
-  s.title = "Constitution française"
+  s.title = "Constitution"
   s.text = Rails.root.join('db', 'french_constitution.txt').read
+  s.user = france
 end.first
 
 FeaturedConstitution.seed :constitution_id do |s|

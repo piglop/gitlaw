@@ -234,4 +234,6 @@ fr:
   bootstrap_forms:
     errors:
       header: Des erreurs ont bloqué l'enregistrement
-        
+
+  anonymous: Anonyme
+  

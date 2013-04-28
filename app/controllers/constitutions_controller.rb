@@ -2,10 +2,6 @@ class ConstitutionsController < ApplicationController
   before_filter :require_user, only: [:new]
   load_and_authorize_resource
 
-  before_filter do
-    add_crumb t("navigation.constitutions"), constitutions_path
-  end
-
   # GET /constitutions
   # GET /constitutions.json
   def index

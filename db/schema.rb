@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130428071215) do
+ActiveRecord::Schema.define(:version => 20130428143920) do
 
   create_table "constitutions", :force => true do |t|
     t.string   "title"
@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(:version => 20130428071215) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "base_id"
+    t.integer  "user_id"
   end
 
   add_index "constitutions", ["base_id"], :name => "index_constitutions_on_base_id"
+  add_index "constitutions", ["user_id"], :name => "index_constitutions_on_user_id"
 
   create_table "featured_constitutions", :force => true do |t|
     t.integer  "constitution_id"
@@ -55,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20130428071215) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
