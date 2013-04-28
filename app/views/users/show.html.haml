@@ -4,35 +4,15 @@
 .row
   .span12
     %dl.dl-horizontal
-      %dt= @user.class.human_attribute_name(:email)
-      %dd= @user.email
+      %dt= @user.class.human_attribute_name(:name)
+      %dd= @user.name
     %dl.dl-horizontal
-      %dt= @user.class.human_attribute_name(:encrypted_password)
-      %dd= @user.encrypted_password
-    %dl.dl-horizontal
-      %dt= @user.class.human_attribute_name(:reset_password_token)
-      %dd= @user.reset_password_token
-    %dl.dl-horizontal
-      %dt= @user.class.human_attribute_name(:reset_password_sent_at)
-      %dd= @user.reset_password_sent_at
-    %dl.dl-horizontal
-      %dt= @user.class.human_attribute_name(:remember_created_at)
-      %dd= @user.remember_created_at
-    %dl.dl-horizontal
-      %dt= @user.class.human_attribute_name(:sign_in_count)
-      %dd= @user.sign_in_count
-    %dl.dl-horizontal
-      %dt= @user.class.human_attribute_name(:current_sign_in_at)
-      %dd= @user.current_sign_in_at
-    %dl.dl-horizontal
-      %dt= @user.class.human_attribute_name(:last_sign_in_at)
-      %dd= @user.last_sign_in_at
-    %dl.dl-horizontal
-      %dt= @user.class.human_attribute_name(:current_sign_in_ip)
-      %dd= @user.current_sign_in_ip
-    %dl.dl-horizontal
-      %dt= @user.class.human_attribute_name(:last_sign_in_ip)
-      %dd= @user.last_sign_in_ip
+      %dt= @user.class.human_attribute_name(:constitutions)
+      %dd
+        %ul
+          - @user.constitutions.each do |constitution|
+            %li= link_to constitution.title, constitution
+    
 
     .form-actions
       = link_to t('.back'), users_path, :class => 'btn'
