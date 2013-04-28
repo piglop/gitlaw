@@ -24,7 +24,8 @@ class ConstitutionsController < ApplicationController
   # GET /constitutions/new.json
   def new
     if params[:base_id]
-      @base = Constitution.accessible_by(current_ability).where(id: params[:base_id]).first
+      @base = Constitution.accessible_by(current_ability).find(params[:base_id])
+      raise "Base not found" unless @base
       @constitution.assign_attributes @base.attributes.select { |name, value| Constitution.accessible_attributes.include?(name) }
       @constitution.base_id = @base.id
     end
