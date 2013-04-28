@@ -1,4 +1,6 @@
 - content_for(:title, t(".title", name: @constitution.id))
+- add_crumb(@constitution.user.display_name, @constitution.user) if @constitution.user
+- add_crumb(@constitution.title, @constitution)
 - add_crumb content_for(:title)
 
 .row

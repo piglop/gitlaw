@@ -49,7 +49,10 @@ fr:
       new_version: "Proposer une amélioration"
       compare_with_base: "Comparer avec l'originale"
       children: "Propositions"
-      
+    
+    compare_with_base:
+      title: "Comparaison avec l'original"
+    
     created: La constitution a été créé.
     updated: La constitution a été modifiée.
     
