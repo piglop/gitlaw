@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130428151626) do
+ActiveRecord::Schema.define(:version => 20130428152045) do
 
   create_table "constitutions", :force => true do |t|
     t.string   "title"
@@ -20,9 +20,11 @@ ActiveRecord::Schema.define(:version => 20130428151626) do
     t.datetime "updated_at", :null => false
     t.integer  "base_id"
     t.integer  "user_id"
+    t.string   "slug"
   end
 
   add_index "constitutions", ["base_id"], :name => "index_constitutions_on_base_id"
+  add_index "constitutions", ["slug"], :name => "index_constitutions_on_slug", :unique => true
   add_index "constitutions", ["user_id"], :name => "index_constitutions_on_user_id"
 
   create_table "featured_constitutions", :force => true do |t|
