@@ -1,3 +1,8 @@
 - FeaturedConstitution.includes(:constitution).map(&:constitution).each do |constitution|
-  = link_to constitution.title, constitution
-  
+  .featured-constitution
+    - user = constitution.user
+    - if user
+      %span.user= link_to user.display_name, user
+      %span.separator /
+    %span.constitution= link_to constitution.title, constitution
+    
