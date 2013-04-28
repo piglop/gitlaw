@@ -5,8 +5,24 @@
 $(document).ready ->
   $(".affix-action-bar").each ->
     bar = $(this)
-    bar.css
-      width: bar.width()
-    .affix
-      offset: bar.position()
     
+    setupAffix = ->
+      bar.css
+        width: bar.width()
+      .affix
+        offset: bar.position()
+    
+    $(window).resize ->
+      if bar.hasClass("affix")
+        wasAffix = true
+        bar.removeClass("affix")
+        
+      bar.css
+        width: "auto"
+      
+      setupAffix()
+        
+      bar.addClass("affix") if wasAffix
+
+      
+      

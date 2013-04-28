@@ -61,8 +61,16 @@
 .list-item
   margin: 0
 
-.affix-action-bar
-  &.affix
-    position: fixed
-    top: 6px
+.affix-action-bar-parent
 
+  .affix-action-bar
+    &.affix
+      position: fixed
+      top: 6px
+      @media (max-width: 767px)
+        position: static
+
+  float: right
+  
+  @media (max-width: 767px)
+    float: none
