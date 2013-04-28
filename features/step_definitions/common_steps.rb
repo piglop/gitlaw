@@ -1,7 +1,11 @@
 # encoding: utf-8
 
-Before do
-  load Rails.root.join('db', 'seeds.rb')
+Given(/^there's a constitution "(.*?)" with the content of "(.*?)"$/) do |arg1, arg2|
+  Constitution.seed :title, title: arg1, text: File.read(arg2)
+end
+
+Given(/^the constitution "(.*?)" is featured$/) do |arg1|
+  FeaturedConstitution.seed :constitution_id, constitution: Constitution.where(title: arg1).first
 end
 
 When(/^I go to the home page$/) do

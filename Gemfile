@@ -70,3 +70,4 @@ gem 'bootstrap_forms', :git => 'git://github.com/ouvrages/bootstrap_forms.git'
 gem 'crummy', '~> 1.7.0'
 gem 'diffy', git: 'git://github.com/piglop/diffy.git', branch: 'split_words'
 
+gem 'seed-fu'

@@ -4,6 +4,8 @@ Feature: Edit the constitution
   I want write a modified constition
 
   Scenario: First edit
+    Given there's a constitution "Constitution française" with the content of "db/french_constitution.txt"
+    And the constitution "Constitution française" is featured
     When I go to the home page
     And I click on "Constitution française"
     Then I should see "Le peuple français proclame solennellement son attachement aux Droits de l'Homme"
