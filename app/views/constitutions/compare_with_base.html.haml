@@ -5,12 +5,25 @@
 
 .row
   .span12
-    %dl.dl-horizontal
-      %dt= @constitution.class.human_attribute_name(:title)
-      %dd= @constitution.title
-    %dl.dl-horizontal
-      %dt= @constitution.class.human_attribute_name(:text)
-      %dd!= Diffy::Diff.new(@constitution.base.text, @constitution.text).to_s(:html)
+    - dmp = DiffMatchPatch.new
+    - diffs = dmp.diff_main(@constitution.base.text, @constitution.text)
+    - dmp.diff_cleanupSemanticLossless(diffs)
+    - old_text = ""
+    - new_text = ""
+    - diffs.each do |state, text|
+      - case state
+        - when :delete
+          - old_text << "<strong>#{h text}</strong>"
+        - when :insert
+          - new_text << "<strong>#{h text}</strong>"
+        - when :equal
+          - old_text << "#{h text}"
+          - new_text << "#{h text}"
+    .row
+      .span6
+        .constitution-text!= old_text
+      .span6
+        .constitution-text!= new_text
 
     .form-actions
       = link_to t('.back'), constitutions_path, :class => 'btn'
