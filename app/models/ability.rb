@@ -8,7 +8,6 @@ class Ability
       can :manage, :all
     else
       can :read, :all
-      cannot :read, User
       can :compare_with_base, Constitution
       
       if user
