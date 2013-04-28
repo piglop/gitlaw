@@ -41,7 +41,7 @@ fr:
       cancel: Annuler
 
     show:
-      title: "Constitution %{name}"
+      title: "%{name}"
       edit: *edit
       destroy: *destroy
       confirm: *confirm
