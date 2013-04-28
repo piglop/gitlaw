@@ -4,6 +4,8 @@ class Constitution < ActiveRecord::Base
   belongs_to :base, class_name: "Constitution"
   belongs_to :user, inverse_of: :constitutions
   
+  has_many :children, class_name: "Constitution", foreign_key: "base_id", inverse_of: :base
+  
   after_validation :clean_text
   
   extend FriendlyId

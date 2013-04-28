@@ -9,6 +9,10 @@
       = link_to t('.compare_with_base'), compare_with_base_constitution_path(@constitution), :class => 'btn btn-block' if @constitution.base
       = link_to t('.edit'), edit_constitution_path(@constitution), :class => 'btn btn-block' if can? :update, @constitution
       = link_to t('.destroy'), constitution_path(@constitution), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger btn-block' if can? :destroy, @constitution
+      %h3= t(".children")
+      %ul
+        - @constitution.children.each do |constitution|
+          %li= link_to_constitution(constitution, compare_with_base_constitution_path(constitution))
       
   .span9
     %h1= @constitution.title
