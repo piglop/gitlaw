@@ -19,7 +19,8 @@
             %p.paragraph= line
 
   .span3
-    = link_to t('.new_version'), new_constitution_path(base_id: @constitution.id), :class => 'btn btn-primary btn-block'
-    = link_to t('.compare_with_base'), compare_with_base_constitution_path(@constitution.id), :class => 'btn btn-block'
-    = link_to t('.edit'), edit_constitution_path(@constitution), :class => 'btn btn-block' if can? :update, @constitution
-    = link_to t('.destroy'), constitution_path(@constitution), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger btn-block' if can? :destroy, @constitution
+    .affix-action-bar
+      = link_to t('.new_version'), new_constitution_path(base_id: @constitution.id), :class => 'btn btn-primary btn-block'
+      = link_to t('.compare_with_base'), compare_with_base_constitution_path(@constitution.id), :class => 'btn btn-block'
+      = link_to t('.edit'), edit_constitution_path(@constitution), :class => 'btn btn-block' if can? :update, @constitution
+      = link_to t('.destroy'), constitution_path(@constitution), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger btn-block' if can? :destroy, @constitution
