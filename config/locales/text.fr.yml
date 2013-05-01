@@ -48,7 +48,7 @@ fr:
       confirm: *confirm
       back: Retour
       new_version: "Proposer une amélioration"
-      compare_with_base: "Comparer avec l'originale"
+      compare_with_base: "Comparer avec l'original"
       children: "Propositions"
     
     compare_with_base:
