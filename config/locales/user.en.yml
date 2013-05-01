@@ -44,7 +44,7 @@ en:
       cancel: Cancel
       
     show:
-      title: "User %{name}"
+      title: "%{name}"
       edit: *edit
       destroy: *destroy
       confirm: *confirm

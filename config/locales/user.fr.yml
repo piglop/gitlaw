@@ -45,7 +45,7 @@ fr:
       cancel: Annuler
 
     show:
-      title: "Utilisateur %{name}"
+      title: "%{name}"
       edit: *edit
       destroy: *destroy
       confirm: *confirm
