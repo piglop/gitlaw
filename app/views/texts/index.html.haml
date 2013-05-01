@@ -1,0 +1,24 @@
+- content_for :title, t('.title')
+
+.row
+  .span12
+    - if @texts.blank?
+      %p.alert.alert-notice= t(".empty")
+    - else
+      %table.table.table-striped
+        %thead
+          %tr
+            %th= Text.human_attribute_name(:title)
+            %th= Text.human_attribute_name(:text)
+            %th= t('.actions')
+        %tbody
+          - @texts.each do |text|
+            %tr
+              %td= text.title
+              %td= text.text
+              %td
+                = link_to t('.show'), text_path(text), :class => 'btn btn-mini'
+                = link_to t('.edit'), edit_text_path(text), :class => 'btn btn-mini' if can? :update, text
+                = link_to t('.destroy'), text_path(text), :method => :delete, :confirm => t('.confirm'), :class => 'btn btn-mini btn-danger' if can? :destroy, text
+
+    = link_to t('.new'), new_text_path, :class => 'btn btn-primary' if can? :create, ::Text

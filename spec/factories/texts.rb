@@ -1,7 +1,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :constitution do
+  factory :text do
     title "MyString"
     text "MyText"
   end

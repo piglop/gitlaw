@@ -7,11 +7,11 @@
       %dt= @user.class.human_attribute_name(:name)
       %dd= @user.name
     %dl.dl-horizontal
-      %dt= @user.class.human_attribute_name(:constitutions)
+      %dt= @user.class.human_attribute_name(:texts)
       %dd
         %ul
-          - @user.constitutions.each do |constitution|
-            %li= link_to constitution.title, constitution
+          - @user.texts.each do |text|
+            %li= link_to text.title, text
     
 
     .form-actions

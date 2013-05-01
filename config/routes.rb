@@ -1,5 +1,5 @@
 Gitlaw::Application.routes.draw do
-  resources :constitutions do
+  resources :texts do
     member do
       get :compare_with_base
     end

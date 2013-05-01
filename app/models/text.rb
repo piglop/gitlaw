@@ -1,10 +1,10 @@
-class Constitution < ActiveRecord::Base
+class Text < ActiveRecord::Base
   attr_accessible :text, :title, :base_id
   
-  belongs_to :base, class_name: "Constitution"
-  belongs_to :user, inverse_of: :constitutions
+  belongs_to :base, class_name: "Text"
+  belongs_to :user, inverse_of: :texts
   
-  has_many :children, class_name: "Constitution", foreign_key: "base_id", inverse_of: :base
+  has_many :children, class_name: "Text", foreign_key: "base_id", inverse_of: :base
   
   after_validation :clean_text
   

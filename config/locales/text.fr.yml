@@ -1,39 +1,39 @@
 fr:
   grammar:
-    constitution: constitution
-    constitutions: constitutions
-    a_constitution: une constitution
-    the_constitution: la constitution
-    of_constitution: de la constitution
-    constitution_gender: f
+    text: texte
+    texts: textes
+    a_text: un texte
+    the_text: le texte
+    of_text: du texte
+    text_gender: m
 
   activerecord:
     models:
-      constitution: Constitution
+      text: Texte
     attributes:
-      constitution:
+      text:
         id: Identifiant
         title: Titre
         text: Texte
         created_at: Date de création
         updated_at: Dernière mise à jour
 
-  constitutions:
+  texts:
     index:
-      title: Liste des constitutions
+      title: Liste des textes
       actions: Actions
       show: Voir
       edit: &edit Modifier
       destroy: &destroy Supprimer
-      confirm: &confirm La constitution sera supprimée. Êtes vous sûr ?
-      new: Créer une constitution
+      confirm: &confirm Le texte sera supprimé. Êtes vous sûr ?
+      new: Créer un texte
       empty: La liste est vide.
 
     edit:
-      title: "Modification de la constitution %{name}"
+      title: "Modification du texte %{name}"
 
     new:
-      title: Nouvelle constitution
+      title: Nouveau texte
       title_with_base: Proposition d'une amélioration
       
     form:
@@ -53,10 +53,10 @@ fr:
     compare_with_base:
       title: "Comparaison avec l'original"
     
-    created: La constitution a été créé.
-    updated: La constitution a été modifiée.
+    created: Le texte a été créé.
+    updated: Le texte a été modifié.
     
   navigation:
-    constitutions: Constitutions
+    texts: Textes
 
   must_be_logged_into_access_this_page: Vous devez être connecté pour accéder à cette page.

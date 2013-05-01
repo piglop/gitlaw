@@ -11,29 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130428152045) do
+ActiveRecord::Schema.define(:version => 20130501085752) do
 
-  create_table "constitutions", :force => true do |t|
-    t.string   "title"
-    t.text     "text"
+  create_table "featured_texts", :force => true do |t|
+    t.integer  "text_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "base_id"
-    t.integer  "user_id"
-    t.string   "slug"
   end
 
-  add_index "constitutions", ["base_id"], :name => "index_constitutions_on_base_id"
-  add_index "constitutions", ["slug"], :name => "index_constitutions_on_slug", :unique => true
-  add_index "constitutions", ["user_id"], :name => "index_constitutions_on_user_id"
-
-  create_table "featured_constitutions", :force => true do |t|
-    t.integer  "constitution_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
-  add_index "featured_constitutions", ["constitution_id"], :name => "index_featured_constitutions_on_constitution_id"
+  add_index "featured_texts", ["text_id"], :name => "index_featured_texts_on_text_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -45,6 +31,20 @@ ActiveRecord::Schema.define(:version => 20130428152045) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "texts", :force => true do |t|
+    t.string   "title"
+    t.text     "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "base_id"
+    t.integer  "user_id"
+    t.string   "slug"
+  end
+
+  add_index "texts", ["base_id"], :name => "index_text_on_base_id"
+  add_index "texts", ["slug"], :name => "index_texts_on_slug", :unique => true
+  add_index "texts", ["user_id"], :name => "index_texts_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

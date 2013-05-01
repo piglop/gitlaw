@@ -13,14 +13,14 @@ france = User.seed :name do |s|
   s.slug = "france"
 end.first
 
-french_constitution = Constitution.seed :slug do |s|
-  s.title = "Constitution"
-  s.slug = "france-constitution"
+french_constitution = Text.seed :slug do |s|
+  s.title = "Constitution française"
+  s.slug = "constitution-francaise"
   s.text = Rails.root.join('db', 'french_constitution.txt').read
   s.user = france
 end.first
 
-FeaturedConstitution.seed :constitution_id do |s|
-  s.constitution_id = french_constitution.id
+FeaturedText.seed :text_id do |s|
+  s.text_id = french_constitution.id
 end
 

@@ -4,16 +4,16 @@ Given(/^there's a user "(.*?)"$/) do |arg1|
   User.seed(:name, name: arg1)
 end
 
-Given(/^the constitution "(.*?)" is owned by user "(.*?)"$/) do |arg1, arg2|
-  Constitution.where(title: arg1).first.update_attribute(:user_id, User.where(name: arg2).first.id)
+Given(/^the text "(.*?)" is owned by user "(.*?)"$/) do |arg1, arg2|
+  Text.where(title: arg1).first.update_attribute(:user_id, User.where(name: arg2).first.id)
 end
 
-Given(/^there's a constitution "(.*?)" with the content of "(.*?)"$/) do |arg1, arg2|
-  Constitution.seed :title, title: arg1, text: File.read(arg2)
+Given(/^there's a text "(.*?)" with the content of "(.*?)"$/) do |arg1, arg2|
+  Text.seed :title, title: arg1, text: File.read(arg2)
 end
 
-Given(/^the constitution "(.*?)" is featured$/) do |arg1|
-  FeaturedConstitution.seed :constitution_id, constitution: Constitution.where(title: arg1).first
+Given(/^the text "(.*?)" is featured$/) do |arg1|
+  FeaturedText.seed :text_id, text: Text.where(title: arg1).first
 end
 
 When(/^I go to the home page$/) do

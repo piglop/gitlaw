@@ -1,13 +1,13 @@
-- content_for(:title, t(".title", name: @constitution.id))
-- add_crumb(@constitution.user.display_name, @constitution.user) if @constitution.user
-- add_crumb(@constitution.title, @constitution)
+- content_for(:title, t(".title", name: @text.id))
+- add_crumb(@text.user.display_name, @text.user) if @text.user
+- add_crumb(@text.title, @text)
 - add_crumb content_for(:title)
 
 .row
   .span12
     -
     - dmp = DiffMatchPatch.new
-    - diffs = dmp.diff_main(@constitution.base.text, @constitution.text)
+    - diffs = dmp.diff_main(@text.base.text, @text.text)
     - dmp.diff_cleanupSemanticLossless(diffs)
     - old_text = ""
     - new_text = ""
@@ -32,8 +32,8 @@
           %p!= new
 
     .form-actions
-      = link_to t('.back'), constitutions_path, :class => 'btn'
-      = link_to t('.new_version'), new_constitution_path(base_id: @constitution.id), :class => 'btn btn-primary'
-      = link_to t('.compare_with_base'), compare_with_base_constitution_path(@constitution.id), :class => 'btn btn-primary'
-      = link_to t('.edit'), edit_constitution_path(@constitution), :class => 'btn' if can? :update, @constitution
-      = link_to t('.destroy'), constitution_path(@constitution), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @constitution
+      = link_to t('.back'), texts_path, :class => 'btn'
+      = link_to t('.new_version'), new_text_path(base_id: @text.id), :class => 'btn btn-primary'
+      = link_to t('.compare_with_base'), compare_with_base_text_path(@text.id), :class => 'btn btn-primary'
+      = link_to t('.edit'), edit_text_path(@text), :class => 'btn' if can? :update, @text
+      = link_to t('.destroy'), text_path(@text), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @text

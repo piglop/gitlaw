@@ -1,4 +1,4 @@
-- FeaturedConstitution.includes(:constitution).map(&:constitution).each do |constitution|
-  .featured-constitution
-    = link_to_constitution(constitution)
+- FeaturedText.includes(:text).map(&:text).each do |text|
+  .featured-text
+    = link_to_text(text)
     

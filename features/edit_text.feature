@@ -1,13 +1,13 @@
-Feature: Edit the constitution
-  In order to suggest a new constitution
+Feature: Edit a text
+  In order to suggest a new text
   As a citizen
-  I want write a modified constition
+  I want write a modified text
 
   Scenario: First edit
     Given there's a user "France"
-    And there's a constitution "Constitution française" with the content of "db/french_constitution.txt"
-    And the constitution "Constitution française" is owned by user "France"
-    And the constitution "Constitution française" is featured
+    And there's a text "Constitution française" with the content of "db/french_constitution.txt"
+    And the text "Constitution française" is owned by user "France"
+    And the text "Constitution française" is featured
     When I go to the home page
     And I click on "Constitution française"
     Then I should see "Le peuple français proclame solennellement son attachement aux Droits de l'Homme"

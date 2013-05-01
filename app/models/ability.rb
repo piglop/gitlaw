@@ -8,10 +8,10 @@ class Ability
       can :manage, :all
     else
       can :read, :all
-      can :compare_with_base, Constitution
+      can :compare_with_base, Text
       
       if user
-        can [:create, :update], Constitution, user_id: user.id
+        can [:create, :update], Text, user_id: user.id
       end
     end
   end

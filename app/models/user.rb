@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
   
-  has_many :constitutions, inverse_of: :user
+  has_many :texts, inverse_of: :user
   
   extend FriendlyId
   friendly_id :name, use: :slugged

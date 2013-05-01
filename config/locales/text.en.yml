@@ -1,0 +1,45 @@
+en:
+  activerecord:
+    models:
+      text: Text
+    attributes:
+      text:
+        id: ID
+        title: 
+        text: 
+        created_at: Creation date
+        updated_at: Last update
+  
+  texts:
+    index:
+      title: List of texts
+      actions: Actions
+      show: Show
+      edit: &edit Edit
+      destroy: &destroy Delete
+      confirm: &confirm The text will by deleted. Are you sure?
+      new: Add a text
+      empty: The list is empty.
+
+    edit:
+      title: "Modification of text %{name}"
+
+    new:
+      title: New text
+
+    form:
+      submit: Save the text
+      cancel: Cancel
+      
+    show:
+      title: "%{name}"
+      edit: *edit
+      destroy: *destroy
+      confirm: *confirm
+      back: Back
+
+    created: The text was successfully created.
+    updated: The text was successfully updated.
+      
+  navigation:
+    texts: Texts
