@@ -13,6 +13,9 @@
           %ul.nav
             %li{class: params[:controller] == "home" ? "active" : ""}
               %a{href: root_path}= t("navigation.home")
+            - if can? :read, Text
+              %li{class: params[:controller] == "texts" ? "active" : ""}
+                %a{href: texts_path}= t("navigation.texts")
             - if can? :read, User
               %li{class: params[:controller] == "users" ? "active" : ""}
                 %a{href: users_path}= t("navigation.users")

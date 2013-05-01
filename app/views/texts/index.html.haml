@@ -8,8 +8,8 @@
       %table.table.table-striped
         %thead
           %tr
-            %th= Text.human_attribute_name(:title)
-            %th= Text.human_attribute_name(:text)
+            %th= ::Text.human_attribute_name(:title)
+            %th= ::Text.human_attribute_name(:text)
             %th= t('.actions')
         %tbody
           - @texts.each do |text|
