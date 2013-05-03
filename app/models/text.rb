@@ -16,6 +16,7 @@ class Text < ActiveRecord::Base
   end
   
   after_create :create_repository
+  after_save :commit_text
   
   def repository_path
     raise "User is required" unless user
@@ -26,5 +27,35 @@ class Text < ActiveRecord::Base
   
   def create_repository
     Rugged::Repository.init_at(repository_path.to_s, true)
+  end
+  
+  def commit_text
+    repo = Rugged::Repository.new(repository_path.to_s)
+    
+    oid = repo.write(self.text, :blob)
+    index = Rugged::Index.new
+    index.add(:path => "#{title}.txt", :oid => oid, :mode => 0100644)
+
+    options = {}
+    options[:tree] = index.write_tree(repo)
+
+    options[:author] = { :email => "testuser@github.com", :name => 'Test Author', :time => Time.now }
+    options[:committer] = { :email => "testuser@github.com", :name => 'Test Author', :time => Time.now }
+    options[:message] ||= "Making a commit via Rugged!"
+    
+    ref = Rugged::Reference.lookup(repo, "refs/heads/master")
+    if ref
+      options[:parents] = [ref.target]
+    else
+      options[:parents] = []
+    end
+
+    new_sha1 = Rugged::Commit.create(repo, options)
+    
+    if ref
+      ref.set_target(new_sha1)
+    else
+      ref = Rugged::Reference.create(repo, "refs/heads/master", new_sha1)
+    end
   end
 end

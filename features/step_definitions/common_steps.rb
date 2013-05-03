@@ -53,3 +53,12 @@ end
 Then(/^there should be a git repository in "(.*?)"$/) do |arg1|
   @repository = Rugged::Repository.new(arg1)
 end
+
+Then(/^the (branch|revision) "(.*?)" should have a file "(.*?)" containing "(.*?)"$/) do |kind, ref, filename, content|
+  commit = @repository.rev_parse(ref)
+  file = commit.tree.detect { |entry| entry[:name].force_encoding('utf-8') == filename }
+  file.should_not be_nil, commit.tree.inspect
+  data = @repository.read(file[:oid]).data
+  data.should include(content)
+end
+
