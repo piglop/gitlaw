@@ -21,9 +21,11 @@ Feature: Edit a text
     Then I should see "Proposition d'une amélioration"
 
     When I replace "proclame solennellement son attachement" with "proclame son attachement" in "Texte"
+    And I fill "Titre de l'amélioration" with "Pas de cérémonie"
     And I click on "Enregistrer"
     Then I should see "Bobby / Constitution française"
     And I should see "Le peuple français proclame son attachement aux Droits de l'Homme"
+    And the current path should be "users/bobby/texts/constitution-française/branches/pas-de-ceremonie
 
     When I click "Comparer avec l'original"
     Then I should see "Le peuple français proclame solennellement son attachement aux Droits de l'Homme"
