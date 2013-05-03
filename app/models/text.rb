@@ -26,7 +26,12 @@ class Text < ActiveRecord::Base
   end
   
   def create_repository
-    Rugged::Repository.init_at(repository_path.to_s, true)
+    if base
+      # Move to Rugged when https://github.com/libgit2/rugged/pull/107 is merged
+      system "git", "clone", base.repository_path.to_s, repository_path.to_s
+    else
+      Rugged::Repository.init_at(repository_path.to_s, true)
+    end
   end
   
   def commit_text
