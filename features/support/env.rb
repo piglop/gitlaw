@@ -57,3 +57,9 @@ end
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
 SeedFu.quiet = true
+
+require 'fileutils'
+Before do
+  FileUtils.rmtree(Rails.root.join("db/repositories/test"))
+end
+

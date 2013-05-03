@@ -8,8 +8,8 @@ Given(/^the text "(.*?)" is owned by user "(.*?)"$/) do |arg1, arg2|
   Text.where(title: arg1).first.update_attribute(:user_id, User.where(name: arg2).first.id)
 end
 
-Given(/^there's a text "(.*?)" with the content of "(.*?)"$/) do |arg1, arg2|
-  Text.seed :title, title: arg1, text: File.read(arg2)
+Given(/^there's a text "(.*?)" with the content of "(.*?)" owned by user "(.*?)"$/) do |arg1, arg2, user|
+  Text.seed :title, title: arg1, text: File.read(arg2), user_id: User.where(name: user).first.id
 end
 
 Given(/^the text "(.*?)" is featured$/) do |arg1|
@@ -48,4 +48,8 @@ end
 
 Then(/^the word "(.*?)" should be highlighted$/) do |arg1|
   all("strong").map(&:text).join(" ").should include(arg1)
+end
+
+Then(/^there should be a git repository in "(.*?)"$/) do |arg1|
+  @repository = Rugged::Repository.new(arg1)
 end
