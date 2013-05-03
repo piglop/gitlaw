@@ -20,7 +20,7 @@ Feature: Edit a text
     And I click on "Enregistrer"
     Then I should see "Bobby / Constitution française"
     And I should see "Le peuple français proclame son attachement aux Droits de l'Homme"
-    When I click "Comparer avec l'originale"
+    When I click "Comparer avec l'original"
     Then I should see "Le peuple français proclame solennellement son attachement aux Droits de l'Homme"
     And I should see "Le peuple français proclame son attachement aux Droits de l'Homme"
     And the word "solennellement" should be highlighted
