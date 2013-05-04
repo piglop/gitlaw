@@ -13,19 +13,20 @@ Feature: Edit a text
     And I click on "Constitution française"
     Then I should see "Le peuple français proclame solennellement son attachement aux Droits de l'Homme"
 
-    When I click on "Proposer une amélioration"
+    When I click on "Proposer une modification"
     Then I should see "Vous devez être connecté"
 
     When I click on "Créer un compte"
     And I fill the sign up form with name "Bobby", email "bob@example.com" and password "password"
-    Then I should see "Proposition d'une amélioration"
+    Then I should see "Création d'une modification"
 
-    When I replace "proclame solennellement son attachement" with "proclame son attachement" in "Texte"
-    And I fill "Titre de l'amélioration" with "Pas de cérémonie"
+    When I fill "Titre de la modification" with "Pas de cérémonie"
+    And I fill "Motivation" with "Nous ne sommes pas solennels."
+    And I replace "proclame solennellement son attachement" with "proclame son attachement" in "Texte modifié"
     And I click on "Enregistrer"
-    Then I should see "Bobby / Constitution française"
+    Then I should see "Bobby / Constitution française / Pas de cérémonie"
     And I should see "Le peuple français proclame son attachement aux Droits de l'Homme"
-    And the current path should be "users/bobby/texts/constitution-française/branches/pas-de-ceremonie
+    And the current path should be "/users/bobby/texts/constitution-française/modifications/pas-de-ceremonie"
 
     When I click "Comparer avec l'original"
     Then I should see "Le peuple français proclame solennellement son attachement aux Droits de l'Homme"
