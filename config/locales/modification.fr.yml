@@ -48,6 +48,8 @@ fr:
       destroy: *destroy
       confirm: *confirm
       back: Retour
+      original_text: Texte original
+      modified_text: Texte modifié
       
     created: La modification a été créé.
     updated: La modification a été modifiée.

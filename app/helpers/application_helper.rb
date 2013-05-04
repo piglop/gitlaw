@@ -24,4 +24,8 @@ module ApplicationHelper
   def expanded_modification_path(modification)
     full_modification_path(modification.original, modification)
   end
+  
+  def link_to_modification(modification)
+    link_to modification.title, expanded_modification_path(modification)
+  end
 end

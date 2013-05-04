@@ -3,14 +3,19 @@
 - add_crumb @modification.title
 
 .row
-  .span3.affix-action-bar-parent
+  .span2.affix-action-bar-parent
     .affix-action-bar
       = link_to t('.edit'), edit_modification_path(@modification), :class => 'btn' if can? :update, @modification
       = link_to t('.destroy'), modification_path(@modification), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @modification
       
-  .span9
+  .span10
+    .row
+      .span5
+        %h2= t(".original_text")
+      .span5
+        %h2= t(".modified_text")
     - dmp = DiffMatchPatch.new
-    - diffs = dmp.diff_main(@modification.original.text, @modification.text)
+    - diffs = dmp.diff_main(@modification.original.text.gsub(/\r\n|\r|\n/, "\n"), @modification.text.gsub(/\r\n|\r|\n/, "\n"))
     - dmp.diff_cleanupSemanticLossless(diffs)
     - old_text = ""
     - new_text = ""
@@ -29,7 +34,7 @@
     - lines = lines.first.zip(lines.last)
     - lines.each do |old, new|
       .row
-        .span6
+        .span5
           %p!= old
-        .span6
+        .span5
           %p!= new

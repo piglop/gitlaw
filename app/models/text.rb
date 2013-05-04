@@ -4,7 +4,7 @@ class Text < ActiveRecord::Base
   belongs_to :base, class_name: "Text"
   belongs_to :user, inverse_of: :texts
   
-  has_many :children, class_name: "Text", foreign_key: "base_id", inverse_of: :base
+  has_many :modifications, inverse_of: :original, foreign_key: :original_id
   
   after_validation :clean_text
   

@@ -29,3 +29,6 @@ Feature: Edit a text
     And I should see "Le peuple français proclame son attachement aux Droits de l'Homme"
     And the word "solennellement" should be highlighted
     And the current path should be "/constitution-francaise/pas-de-ceremonie"
+
+    When I click on "Constitution française"
+    Then I should see "Pas de cérémonie"
