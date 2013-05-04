@@ -1,6 +1,5 @@
 = bootstrap_form_for @modification, :html => { :class => 'form-horizontal' } do |f|
-  = f.number_field :user_id
-  = f.number_field :original_id
+  = f.hidden_field :original_id
   = f.text_field :title
   = f.text_area :motivations
   = f.text_area :text

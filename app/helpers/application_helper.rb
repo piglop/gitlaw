@@ -20,4 +20,8 @@ module ApplicationHelper
       link_to user.display_name, user
     end
   end
+  
+  def expanded_modification_path(modification)
+    full_modification_path(modification.original, modification)
+  end
 end

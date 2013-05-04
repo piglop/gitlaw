@@ -1,5 +1,6 @@
 - content_for(:title, t(".title", name: @modification.id))
-- add_crumb content_for(:title)
+- add_crumb @modification.original.title, @modification.original
+- add_crumb @modification.title
 
 .row
   .span12

@@ -9,11 +9,7 @@ class Text < ActiveRecord::Base
   after_validation :clean_text
   
   extend FriendlyId
-  friendly_id :title_with_user, use: :slugged
-  
-  def title_with_user
-    [user.try(:name), title].select(&:present?).join("-")
-  end
+  friendly_id :title, use: :slugged
   
   def clean_text
     self.text = self.text.gsub("\r\n", "\n") if self.text

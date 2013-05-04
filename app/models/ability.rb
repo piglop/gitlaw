@@ -12,6 +12,7 @@ class Ability
       
       if user
         can [:create, :update], Text, user_id: user.id
+        can [:create, :update], Modification, user_id: user.id
       end
     end
   end

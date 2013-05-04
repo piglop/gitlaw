@@ -24,9 +24,9 @@ Feature: Edit a text
     And I fill "Motivation" with "Nous ne sommes pas solennels."
     And I replace "proclame solennellement son attachement" with "proclame son attachement" in "Texte modifié"
     And I click on "Enregistrer"
-    Then I should see "Bobby / Constitution française / Pas de cérémonie"
+    Then I should see "Constitution française / Pas de cérémonie"
     And I should see "Le peuple français proclame son attachement aux Droits de l'Homme"
-    And the current path should be "/users/bobby/texts/constitution-française/modifications/pas-de-ceremonie"
+    And the current path should be "/constitution-francaise/pas-de-ceremonie"
 
     When I click "Comparer avec l'original"
     Then I should see "Le peuple français proclame solennellement son attachement aux Droits de l'Homme"

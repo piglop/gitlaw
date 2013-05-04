@@ -1,9 +1,8 @@
 class ModificationsController < ApplicationController
+  before_filter :require_user, only: [:new]
   load_and_authorize_resource
-
-  before_filter do
-    add_crumb t("navigation.modifications"), modifications_path
-  end
+  
+  include ApplicationHelper
 
   # GET /modifications
   # GET /modifications.json
@@ -26,6 +25,10 @@ class ModificationsController < ApplicationController
   # GET /modifications/new
   # GET /modifications/new.json
   def new
+    if params[:original_id].present?
+      @modification.original = Text.accessible_by(current_ability).find(params[:original_id])
+      @modification.text = params[:text] || @modification.original.try(:text)
+    end
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @modification }
@@ -41,7 +44,7 @@ class ModificationsController < ApplicationController
   def create
     respond_to do |format|
       if @modification.save
-        format.html { redirect_to @modification, flash: {success: t("modifications.created")} }
+        format.html { redirect_to expanded_modification_path(@modification), flash: {success: t("modifications.created")} }
         format.json { render json: @modification, status: :created, location: @modification }
       else
         format.html { render action: "new" }

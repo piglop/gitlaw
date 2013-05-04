@@ -5,6 +5,7 @@ Gitlaw::Application.routes.draw do
     member do
       get :compare_with_base
     end
+    resources :modifications
   end
 
   resources :users
@@ -12,6 +13,8 @@ Gitlaw::Application.routes.draw do
   devise_for :users, path: 'auth', controllers: {registrations: "registrations"}
 
   root :to =>  "home#index"
+  
+  match ':original_id/:id' => 'modifications#show', as: :full_modification
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

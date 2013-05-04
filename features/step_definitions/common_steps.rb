@@ -9,7 +9,7 @@ Given(/^the text "(.*?)" is owned by user "(.*?)"$/) do |arg1, arg2|
 end
 
 Given(/^there's a text "(.*?)" with the content of "(.*?)"$/) do |arg1, arg2|
-  Text.seed :title, title: arg1, text: File.read(arg2)
+  Text.create! title: arg1, text: File.read(arg2)
 end
 
 Given(/^the text "(.*?)" is featured$/) do |arg1|
@@ -42,6 +42,7 @@ end
 
 When(/^I replace "(.*?)" with "(.*?)" in "(.*?)"$/) do |old_text, new_text, field|
   text = find_field(field).value
+  text.should include(old_text)
   text = text.sub(old_text, new_text)
   fill_in field, with: text
 end

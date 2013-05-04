@@ -47,7 +47,7 @@ fr:
       destroy: *destroy
       confirm: *confirm
       back: Retour
-      new_version: "Proposer une modification"
+      new_modification: "Proposer une modification"
       compare_with_base: "Comparer avec l'original"
       children: "Propositions"
     

@@ -15,9 +15,9 @@ fr:
         id: Identifiant
         user_id: 
         original_id: 
-        title: 
+        title: Titre de la modification
         motivations: 
-        text: 
+        text: Texte modifié
         created_at: Date de création
         updated_at: Dernière mise à jour
 
@@ -36,10 +36,10 @@ fr:
       title: "Modification de la modification %{name}"
 
     new:
-      title: Nouvelle modification
+      title: Création d'une modification
       
     form:
-      submit: Enregistrer la modification
+      submit: Enregistrer
       cancel: Annuler
 
     show:
