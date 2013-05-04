@@ -1,4 +1,6 @@
 Gitlaw::Application.routes.draw do
+  resources :modifications
+
   resources :texts do
     member do
       get :compare_with_base

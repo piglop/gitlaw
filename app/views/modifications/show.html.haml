@@ -1,0 +1,25 @@
+- content_for(:title, t(".title", name: @modification.id))
+- add_crumb content_for(:title)
+
+.row
+  .span12
+    %dl.dl-horizontal
+      %dt= @modification.class.human_attribute_name(:user_id)
+      %dd= @modification.user_id
+    %dl.dl-horizontal
+      %dt= @modification.class.human_attribute_name(:original_id)
+      %dd= @modification.original_id
+    %dl.dl-horizontal
+      %dt= @modification.class.human_attribute_name(:title)
+      %dd= @modification.title
+    %dl.dl-horizontal
+      %dt= @modification.class.human_attribute_name(:motivations)
+      %dd= @modification.motivations
+    %dl.dl-horizontal
+      %dt= @modification.class.human_attribute_name(:text)
+      %dd= @modification.text
+
+    .form-actions
+      = link_to t('.back'), modifications_path, :class => 'btn'
+      = link_to t('.edit'), edit_modification_path(@modification), :class => 'btn' if can? :update, @modification
+      = link_to t('.destroy'), modification_path(@modification), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @modification

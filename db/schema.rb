@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501085752) do
+ActiveRecord::Schema.define(:version => 20130504141257) do
 
   create_table "featured_texts", :force => true do |t|
     t.integer  "text_id"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(:version => 20130501085752) do
   end
 
   add_index "featured_texts", ["text_id"], :name => "index_featured_texts_on_text_id"
+
+  create_table "modifications", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "original_id"
+    t.string   "title"
+    t.text     "motivations"
+    t.text     "text"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "modifications", ["original_id"], :name => "index_modifications_on_original_id"
+  add_index "modifications", ["user_id"], :name => "index_modifications_on_user_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

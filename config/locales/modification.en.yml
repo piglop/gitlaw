@@ -1,0 +1,48 @@
+en:
+  activerecord:
+    models:
+      modification: Modification
+    attributes:
+      modification:
+        id: ID
+        user_id: 
+        original_id: 
+        title: 
+        motivations: 
+        text: 
+        created_at: Creation date
+        updated_at: Last update
+  
+  modifications:
+    index:
+      title: List of modifications
+      actions: Actions
+      show: Show
+      edit: &edit Edit
+      destroy: &destroy Delete
+      confirm: &confirm The modification will by deleted. Are you sure?
+      new: Add a modification
+      empty: The list is empty.
+
+    edit:
+      title: "Modification of modification %{name}"
+
+    new:
+      title: New modification
+
+    form:
+      submit: Save the modification
+      cancel: Cancel
+      
+    show:
+      title: "Modification %{name}"
+      edit: *edit
+      destroy: *destroy
+      confirm: *confirm
+      back: Back
+
+    created: The modification was successfully created.
+    updated: The modification was successfully updated.
+      
+  navigation:
+    modifications: Modifications

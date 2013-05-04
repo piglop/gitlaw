@@ -1,0 +1,30 @@
+- content_for :title, t('.title')
+
+.row
+  .span12
+    - if @modifications.blank?
+      %p.alert.alert-notice= t(".empty")
+    - else
+      %table.table.table-striped
+        %thead
+          %tr
+            %th= Modification.human_attribute_name(:user_id)
+            %th= Modification.human_attribute_name(:original_id)
+            %th= Modification.human_attribute_name(:title)
+            %th= Modification.human_attribute_name(:motivations)
+            %th= Modification.human_attribute_name(:text)
+            %th= t('.actions')
+        %tbody
+          - @modifications.each do |modification|
+            %tr
+              %td= modification.user_id
+              %td= modification.original_id
+              %td= modification.title
+              %td= modification.motivations
+              %td= modification.text
+              %td
+                = link_to t('.show'), modification_path(modification), :class => 'btn btn-mini'
+                = link_to t('.edit'), edit_modification_path(modification), :class => 'btn btn-mini' if can? :update, modification
+                = link_to t('.destroy'), modification_path(modification), :method => :delete, :confirm => t('.confirm'), :class => 'btn btn-mini btn-danger' if can? :destroy, modification
+
+    = link_to t('.new'), new_modification_path, :class => 'btn btn-primary' if can? :create, ::Modification
