@@ -78,7 +78,4 @@ class TextsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  def compare_with_base
-  end
 end

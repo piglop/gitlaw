@@ -1,13 +1,6 @@
 Gitlaw::Application.routes.draw do
   resources :modifications
-
-  resources :texts do
-    member do
-      get :compare_with_base
-    end
-    resources :modifications
-  end
-
+  resources :texts
   resources :users
 
   devise_for :users, path: 'auth', controllers: {registrations: "registrations"}
