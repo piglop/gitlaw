@@ -49,3 +49,11 @@ end
 Then(/^the word "(.*?)" should be highlighted$/) do |arg1|
   all("strong").map(&:text).join(" ").should include(arg1)
 end
+
+When(/^I fill "(.*?)" with "(.*?)"$/) do |arg1, arg2|
+  fill_in arg1, with: arg2
+end
+
+Then(/^the current path should be "(.*?)"$/) do |arg1|
+  URI.parse(current_url).path.should == arg1
+end

@@ -35,7 +35,7 @@ fr:
 
     new:
       title: Nouveau texte
-      title_with_base: Proposition d'une amélioration
+      title_with_base: Création d'une modification
       
     form:
       submit: Enregistrer
@@ -47,7 +47,7 @@ fr:
       destroy: *destroy
       confirm: *confirm
       back: Retour
-      new_version: "Proposer une amélioration"
+      new_version: "Proposer une modification"
       compare_with_base: "Comparer avec l'original"
       children: "Propositions"
     
