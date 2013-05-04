@@ -25,10 +25,7 @@ Feature: Edit a text
     And I replace "proclame solennellement son attachement" with "proclame son attachement" in "Texte modifié"
     And I click on "Enregistrer"
     Then I should see "Constitution française / Pas de cérémonie"
-    And I should see "Le peuple français proclame son attachement aux Droits de l'Homme"
-    And the current path should be "/constitution-francaise/pas-de-ceremonie"
-
-    When I click "Comparer avec l'original"
-    Then I should see "Le peuple français proclame solennellement son attachement aux Droits de l'Homme"
+    And I should see "Le peuple français proclame solennellement son attachement aux Droits de l'Homme"
     And I should see "Le peuple français proclame son attachement aux Droits de l'Homme"
     And the word "solennellement" should be highlighted
+    And the current path should be "/constitution-francaise/pas-de-ceremonie"

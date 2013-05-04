@@ -3,24 +3,33 @@
 - add_crumb @modification.title
 
 .row
-  .span12
-    %dl.dl-horizontal
-      %dt= @modification.class.human_attribute_name(:user_id)
-      %dd= @modification.user_id
-    %dl.dl-horizontal
-      %dt= @modification.class.human_attribute_name(:original_id)
-      %dd= @modification.original_id
-    %dl.dl-horizontal
-      %dt= @modification.class.human_attribute_name(:title)
-      %dd= @modification.title
-    %dl.dl-horizontal
-      %dt= @modification.class.human_attribute_name(:motivations)
-      %dd= @modification.motivations
-    %dl.dl-horizontal
-      %dt= @modification.class.human_attribute_name(:text)
-      %dd= @modification.text
-
-    .form-actions
-      = link_to t('.back'), modifications_path, :class => 'btn'
+  .span3.affix-action-bar-parent
+    .affix-action-bar
       = link_to t('.edit'), edit_modification_path(@modification), :class => 'btn' if can? :update, @modification
       = link_to t('.destroy'), modification_path(@modification), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @modification
+      
+  .span9
+    - dmp = DiffMatchPatch.new
+    - diffs = dmp.diff_main(@modification.original.text, @modification.text)
+    - dmp.diff_cleanupSemanticLossless(diffs)
+    - old_text = ""
+    - new_text = ""
+    - diffs.each do |state, text|
+      - case state
+        - when :delete
+          - old_text << text.split(/\n/, -1).map { |x| "<strong>#{h x}</strong>" }.join("\n")
+          - new_text << "\n" * text.count("\n")
+        - when :insert
+          - new_text << text.split(/\n/, -1).map { |x| "<strong>#{h x}</strong>" }.join("\n")
+          - old_text << "\n" * text.count("\n")
+        - when :equal
+          - old_text << "#{h text}"
+          - new_text << "#{h text}"
+    - lines = [old_text, new_text].map { |x| x.split(/\n/) }
+    - lines = lines.first.zip(lines.last)
+    - lines.each do |old, new|
+      .row
+        .span6
+          %p!= old
+        .span6
+          %p!= new
