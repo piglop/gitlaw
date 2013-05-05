@@ -26,6 +26,6 @@ module ApplicationHelper
   end
   
   def link_to_modification(modification)
-    link_to modification.title, expanded_modification_path(modification)
+    link_to modification.title.presence || I18n.t(:without_title), expanded_modification_path(modification)
   end
 end
