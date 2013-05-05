@@ -17,21 +17,23 @@
     - dmp = DiffMatchPatch.new
     - diffs = dmp.diff_main(@modification.original.text.gsub(/\r\n|\r|\n/, "\n"), @modification.text.gsub(/\r\n|\r|\n/, "\n"))
     - dmp.diff_cleanupSemanticLossless(diffs)
-    - old_text = ""
-    - new_text = ""
+    - old_text = []
+    - new_text = []
     - diffs.each do |state, text|
       - case state
         - when :delete
-          - old_text << text.split(/\n/, -1).map { |x| "<strong>#{h x}</strong>" }.join("\n")
-          - new_text << "\n" * text.count("\n")
+          - text.split(/\n/, -1).each do |line|
+            - old_text << "<strong>#{h line}</strong>"
+            - new_text << ""
         - when :insert
-          - new_text << text.split(/\n/, -1).map { |x| "<strong>#{h x}</strong>" }.join("\n")
-          - old_text << "\n" * text.count("\n")
+          - text.split(/\n/, -1).each do |line|
+            - new_text << "<strong>#{h line}</strong>"
+            - old_text << ""
         - when :equal
-          - old_text << "#{h text}"
-          - new_text << "#{h text}"
-    - lines = [old_text, new_text].map { |x| x.split(/\n/) }
-    - lines = lines.first.zip(lines.last)
+          - text.split(/\n/, -1).each do |line|
+            - old_text << "#{h line}"
+            - new_text << "#{h line}"
+    - lines = old_text.zip(new_text)
     - lines.each do |old, new|
       .row
         .span5
