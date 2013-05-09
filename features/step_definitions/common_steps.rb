@@ -8,10 +8,6 @@ Given(/^the text "(.*?)" is owned by user "(.*?)"$/) do |arg1, arg2|
   Text.where(title: arg1).first.update_attribute(:user_id, User.where(name: arg2).first.id)
 end
 
-Given(/^there's a text "(.*?)" with the content of "(.*?)"$/) do |arg1, arg2|
-  Text.create! title: arg1, text: File.read(arg2)
-end
-
 Given(/^there's a text "(.*?)" with the content of "(.*?)" owned by user "(.*?)"$/) do |arg1, arg2, user|
   Text.seed :title, title: arg1, text: File.read(arg2), user_id: User.where(name: user).first.id
 end
