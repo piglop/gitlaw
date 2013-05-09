@@ -5,8 +5,7 @@ Feature: Edit a text
 
   Scenario: First edit
     Given there's a user "France"
-    And there's a text "Constitution française" with the content of "db/french_constitution.txt"
-    And the text "Constitution française" is owned by user "France"
+    And there's a text "Constitution française" with the content of "db/french_constitution.txt" owned by user "France"
     And the text "Constitution française" is featured
 
     When I go to the home page
@@ -32,3 +31,7 @@ Feature: Edit a text
 
     When I click on "Constitution française"
     Then I should see "Pas de cérémonie"
+
+    Then there should be a git repository in "db/repositories/test/bobby/constitution-francaise.git"
+    And the branch "master" should have a file "Constitution française.txt" containing "proclame son attachement"
+    And the revision "master^" should have a file "Constitution française.txt" containing "proclame solennellement son attachement"

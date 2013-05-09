@@ -12,6 +12,10 @@ Given(/^there's a text "(.*?)" with the content of "(.*?)"$/) do |arg1, arg2|
   Text.create! title: arg1, text: File.read(arg2)
 end
 
+Given(/^there's a text "(.*?)" with the content of "(.*?)" owned by user "(.*?)"$/) do |arg1, arg2, user|
+  Text.seed :title, title: arg1, text: File.read(arg2), user_id: User.where(name: user).first.id
+end
+
 Given(/^the text "(.*?)" is featured$/) do |arg1|
   FeaturedText.seed :text_id, text: Text.where(title: arg1).first
 end
@@ -57,4 +61,16 @@ end
 
 Then(/^the current path should be "(.*?)"$/) do |arg1|
   URI.parse(current_url).path.should == arg1
+end
+
+Then(/^there should be a git repository in "(.*?)"$/) do |arg1|
+  @repository = Rugged::Repository.new(arg1)
+end
+
+Then(/^the (branch|revision) "(.*?)" should have a file "(.*?)" containing "(.*?)"$/) do |kind, ref, filename, content|
+  commit = @repository.rev_parse(ref)
+  file = commit.tree.detect { |entry| entry[:name].force_encoding('utf-8') == filename }
+  file.should_not be_nil, commit.tree.inspect
+  data = @repository.read(file[:oid]).data
+  data.should include(content)
 end
