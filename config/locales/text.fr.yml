@@ -34,7 +34,7 @@ fr:
       title: "Modification du texte %{name}"
 
     new:
-      title: Nouveau texte
+      title: Création d'un nouveau texte
       
     form:
       submit: Enregistrer

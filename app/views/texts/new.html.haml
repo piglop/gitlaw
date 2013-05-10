@@ -2,6 +2,7 @@
   - content_for(:title, t(".title_with_base", base_name: @base.title))
 - else
   - content_for(:title, t(".title"))
+- add_crumb current_user.display_name, current_user
 - add_crumb content_for(:title)
 
 .row
