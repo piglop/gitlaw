@@ -45,7 +45,7 @@ module ApplicationHelper
       left = left[1].to_s
       right = right[1].to_s
       if state == "="
-        lines << [left, right]
+        lines << [:same, left, right]
       else
         diffs = dmp.diff_main(left, right)
         dmp.diff_cleanupSemantic(diffs)
@@ -62,7 +62,7 @@ module ApplicationHelper
             new_text << "#{h text}"
           end
         end
-        lines << [old_text, new_text]
+        lines << [:diff, old_text, new_text]
       end
     end
     lines

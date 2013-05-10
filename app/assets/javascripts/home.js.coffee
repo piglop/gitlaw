@@ -24,5 +24,19 @@ $(document).ready ->
         
       bar.addClass("affix") if wasAffix
 
+  
+  currentHiddenBlock = null
+  $(".text-diff .row").each (i, row) ->
+    row = $(row)
+    if row.hasClass("same")
+      row.hide()
       
+      if currentHiddenBlock
+        row.appendTo(currentHiddenBlock)
+      else
+        currentHiddenBlock = $("<div>").addClass("hidden-block").insertBefore(row)
+        row.wrap(currentHiddenBlock)
+      
+    else
+      currentHiddenBlock = null
       
