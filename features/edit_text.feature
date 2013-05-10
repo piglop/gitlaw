@@ -4,9 +4,9 @@ Feature: Edit a text
   I want write a modified text
 
   Scenario: First edit
-    Given there's a user "France"
-    And there's a text "Constitution française" with the content of "db/french_constitution.txt" owned by user "France"
-    And the text "Constitution française" is featured
+    Given there's a user "France" with identifier "france"
+    And there's a text "Constitution française" with identifier "constitution-francaise" and the content of "db/french_constitution.txt" owned by user "france"
+    And the text "constitution-francaise" is featured
 
     When I go to the home page
     And I click on "Constitution française"
@@ -16,7 +16,7 @@ Feature: Edit a text
     Then I should see "Vous devez être connecté"
 
     When I click on "Créer un compte"
-    And I fill the sign up form with name "Bobby", email "bob@example.com" and password "password"
+    And I fill the sign up form with name "Bobby", identifier "bobby", email "bob@example.com" and password "password"
     Then I should see "Création d'une modification"
 
     When I fill "Titre de la modification" with "Pas de cérémonie"
@@ -27,7 +27,7 @@ Feature: Edit a text
     And I should see "Le peuple français proclame solennellement son attachement aux Droits de l'Homme"
     And I should see "Le peuple français proclame son attachement aux Droits de l'Homme"
     And the word "solennellement" should be highlighted
-    And the current path should be "/constitution-francaise/pas-de-ceremonie"
+    And the current path should be "/bobby/constitution-francaise/pas-de-ceremonie"
 
     When I click on "Constitution française"
     Then I should see "Pas de cérémonie"
