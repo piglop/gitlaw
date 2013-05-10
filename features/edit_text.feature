@@ -33,5 +33,5 @@ Feature: Edit a text
     Then I should see "Pas de cérémonie"
 
     Then there should be a git repository in "db/repositories/test/bobby/constitution-francaise.git"
-    And the branch "master" should have a file "Constitution française.txt" containing "proclame son attachement"
-    And the revision "master^" should have a file "Constitution française.txt" containing "proclame solennellement son attachement"
+    And the branch "pas-de-ceremonie" should have a file "Constitution française.txt" containing "proclame son attachement"
+    And the revision "pas-de-ceremonie^" should have a file "Constitution française.txt" containing "proclame solennellement son attachement"
