@@ -39,13 +39,15 @@ module ApplicationHelper
   
   def diff_lines(old, new)
     dmp = DiffMatchPatch.new
-    lines = []
+    groups = []
+    
     Diff::LCS.sdiff(old.split(/\r\n|\r|\n/), new.split(/\r\n|\r|\n/)).each do |data|
       state, left, right = *data
       left = left[1].to_s
       right = right[1].to_s
       if state == "="
-        lines << [:same, left, right]
+        groups << [:same, []] if groups.empty? or groups.last[0] != :same
+        groups.last[1] << [left, right]
       else
         diffs = dmp.diff_main(left, right)
         dmp.diff_cleanupSemantic(diffs)
@@ -62,9 +64,10 @@ module ApplicationHelper
             new_text << "#{h text}"
           end
         end
-        lines << [:diff, old_text, new_text]
+        groups << [:diff, []] if groups.empty? or groups.last[0] != :diff
+        groups.last[1] << [old_text, new_text]
       end
     end
-    lines
+    groups
   end
 end

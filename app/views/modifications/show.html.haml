@@ -16,9 +16,11 @@
       .span5
         %h2= t(".modified_text")
     .text-diff
-      - diff_lines(@modification.original.text, @modification.text).each do |kind, old, new|
-        .row{class: kind}
-          .span5
-            %p!= old
-          .span5
-            %p!= new
+      - diff_lines(@modification.original.text, @modification.text).each do |kind, lines|
+        .diff-group{class: kind}
+          - lines.each do |old, new|
+            .row
+              .span5
+                %p!= old
+              .span5
+                %p!= new
