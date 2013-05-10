@@ -82,7 +82,17 @@ h2.title
 h3.article
   margin-bottom: 0px
   
-.diff-group.same
-  display: none
+.diff-group
+  &.same
+    .lines
+      display: none
+    .line-count
+      text-align: center
+      opacity: 0.6
+      
+  &.diff
+    .line-count
+      display: none
+      
   
   

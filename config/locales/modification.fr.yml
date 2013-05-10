@@ -50,6 +50,10 @@ fr:
       back: Retour
       original_text: Texte original
       modified_text: Texte modifié
+      line_count:
+        zero: "[Vide]"
+        one: "[⋯ 1 ligne ⋯]"
+        other: "[⋯ %{count} lignes ⋯]"
       
     created: La variante a été créé.
     updated: La variante a été modifiée.

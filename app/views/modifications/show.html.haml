@@ -18,9 +18,12 @@
     .text-diff
       - diff_lines(@modification.original.text, @modification.text).each do |kind, lines|
         .diff-group{class: kind}
-          - lines.each do |old, new|
-            .row
-              .span5
-                %p!= old
-              .span5
-                %p!= new
+          .row.line-count
+            .span10= t(".line_count", count: lines.count)
+          .lines
+            - lines.each do |old, new|
+              .row
+                .span5
+                  %p!= old
+                .span5
+                  %p!= new
