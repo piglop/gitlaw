@@ -7,7 +7,7 @@ class Modification < ActiveRecord::Base
   delegate :user, to: :repository
 
   extend FriendlyId
-  friendly_id :slug_base, use: :slugged
+  friendly_id :slug_base, use: [:slugged, :scoped], scope: :repository
 
   before_save :create_repository
   after_save :commit_text

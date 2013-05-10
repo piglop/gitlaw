@@ -5,7 +5,8 @@
 .row
   .span3.affix-action-bar-parent
     .affix-action-bar
-      = link_to t('.new_modification'), new_modification_path(original_id: @text), :class => 'btn btn-primary btn-block'
+      - if @text.master
+        = link_to t('.new_modification'), new_modification_path(original_user: @text.user, original_id: @text.master), :class => 'btn btn-primary btn-block'
       = link_to t('.edit'), edit_text_path(@text), :class => 'btn btn-block' if can? :update, @text
       = link_to t('.destroy'), text_path(@text), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger btn-block' if can? :destroy, @text
       - if @text.modifications.reject(&:master?).any?

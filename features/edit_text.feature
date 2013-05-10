@@ -20,7 +20,7 @@ Feature: Edit a text
     Then I should see "Création d'une variante"
 
     When I fill "Titre de la variante" with "Pas de cérémonie"
-    And I fill "Motivation" with "Nous ne sommes pas solennels."
+    And I fill "Description" with "Nous ne sommes pas solennels."
     And I replace "proclame solennellement son attachement" with "proclame son attachement" in "Texte modifié"
     And I click on "Enregistrer"
     Then I should see "Constitution française / Pas de cérémonie"

@@ -9,7 +9,12 @@ Given(/^the text "(.*?)" is owned by user "(.*?)"$/) do |arg1, arg2|
 end
 
 Given(/^there's a text "(.*?)" with identifier "(.*?)" and the content of "(.*?)" owned by user "(.*?)"$/) do |arg1, identifier, arg2, user|
-  Text.seed :title, title: arg1, slug: identifier, text: File.read(arg2), user_id: User.find(user).id
+  text = Text.new
+  text.title = arg1
+  text.slug = identifier
+  text.modifications_attributes = [{text: File.read(arg2)}]
+  text.user_id = User.find(user).id
+  text.save!
 end
 
 Given(/^the text "(.*?)" is featured$/) do |arg1|
