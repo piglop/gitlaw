@@ -8,10 +8,10 @@
       = link_to t('.new_modification'), new_modification_path(original_id: @text), :class => 'btn btn-primary btn-block'
       = link_to t('.edit'), edit_text_path(@text), :class => 'btn btn-block' if can? :update, @text
       = link_to t('.destroy'), text_path(@text), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger btn-block' if can? :destroy, @text
-      - if @text.modifications.any?
+      - if @text.modifications.reject(&:master?).any?
         %h3= t(".modifications")
         %ul
-          - @text.modifications.each do |modification|
+          - @text.modifications.reject(&:master?).each do |modification|
             %li= link_to_modification(modification)
       
   .span9

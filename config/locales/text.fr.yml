@@ -50,7 +50,7 @@ fr:
       back: Retour
       new_modification: "Proposer une variante"
       compare_with_base: "Comparer avec l'original"
-      modifications: "Modifications"
+      modifications: "Variantes"
     
     compare_with_base:
       title: "Comparaison avec l'original"
