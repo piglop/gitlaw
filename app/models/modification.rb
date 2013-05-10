@@ -38,21 +38,46 @@ class Modification < ActiveRecord::Base
     options[:author] = { :email => "testuser@github.com", :name => 'Test Author', :time => Time.now }
     options[:committer] = { :email => "testuser@github.com", :name => 'Test Author', :time => Time.now }
     options[:message] ||= "Making a commit via Rugged!"
-    
-    ref_path = "refs/heads/#{slug}"
-    ref = Rugged::Reference.lookup(repo, ref_path)
-    if ref
-      options[:parents] = [ref.target]
+
+    if head
+      options[:parents] = [head]
     else
-      options[:parents] = []
+      options[:parents] = [original.head]
+      
+      unless repo.exists?(original.head)
+        original_repository = Rugged::Repository.new(original.repository_path.to_s)
+        walker = Rugged::Walker.new(original_repository)
+        walker.sorting(Rugged::SORT_TOPO | Rugged::SORT_REVERSE)
+        walker.push(original.head)
+        walker.each do |commit|
+          break if repo.exists?(commit.oid)
+          new_commit = commit.to_hash
+          
+          builder = Rugged::Tree::Builder.new
+          commit.tree.each do |entry|
+            unless repo.exists?(entry[:oid])
+              obj = original_repository.read(entry[:oid])
+              repo.write(obj.data, obj.type)
+            end
+            builder << entry
+          end
+          new_commit[:tree] = builder.write(repo)
+          
+          Rugged::Commit.create(repo, new_commit)
+        end
+      end
     end
 
     new_sha1 = Rugged::Commit.create(repo, options)
     
+    ref_path = "refs/heads/#{slug}"
+    ref = Rugged::Reference.lookup(repo, ref_path)
     if ref
       ref.set_target(new_sha1)
     else
       ref = Rugged::Reference.create(repo, ref_path, new_sha1)
     end
+    
+    self.head = new_sha1
   end
 end

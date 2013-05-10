@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130510083727) do
+ActiveRecord::Schema.define(:version => 20130510084034) do
 
   create_table "featured_texts", :force => true do |t|
     t.integer  "text_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20130510083727) do
     t.datetime "updated_at",    :null => false
     t.string   "slug"
     t.integer  "repository_id"
+    t.string   "head"
   end
 
   add_index "modifications", ["original_id"], :name => "index_modifications_on_original_id"
