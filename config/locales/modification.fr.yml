@@ -1,21 +1,21 @@
 fr:
   grammar:
-    modification: modification
-    modifications: modifications
-    a_modification: une modification
-    the_modification: la modification
-    of_modification: de la modification
+    modification: variante
+    modifications: variantes
+    a_modification: une variante
+    the_modification: la variante
+    of_modification: de la variante
     modification_gender: f
 
   activerecord:
     models:
-      modification: Modification
+      modification: Variante
     attributes:
       modification:
         id: Identifiant
         user_id: 
         original_id: 
-        title: Titre de la modification
+        title: Titre de la variante
         motivations: 
         text: Texte modifié
         created_at: Date de création
@@ -23,27 +23,27 @@ fr:
 
   modifications:
     index:
-      title: Liste des modifications
+      title: Liste des variantes
       actions: Actions
       show: Voir
       edit: &edit Modifier
       destroy: &destroy Supprimer
-      confirm: &confirm La modification sera supprimée. Êtes vous sûr ?
-      new: Créer une modification
+      confirm: &confirm La variante sera supprimée. Êtes vous sûr ?
+      new: Créer une variante
       empty: La liste est vide.
 
     edit:
-      title: "Modification de la modification %{name}"
+      title: "Modification de la variante %{name}"
 
     new:
-      title: Création d'une modification
+      title: Création d'une variante
       
     form:
       submit: Enregistrer
       cancel: Annuler
 
     show:
-      title: "Modification %{name}"
+      title: "%{name}"
       edit: *edit
       destroy: *destroy
       confirm: *confirm
@@ -51,8 +51,8 @@ fr:
       original_text: Texte original
       modified_text: Texte modifié
       
-    created: La modification a été créé.
-    updated: La modification a été modifiée.
+    created: La variante a été créé.
+    updated: La variante a été modifiée.
     
   navigation:
-    modifications: Modifications
+    modifications: Variantes
