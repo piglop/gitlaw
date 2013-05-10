@@ -1,5 +1,5 @@
 class Text < ActiveRecord::Base
-  attr_accessible :text, :title, :base_id
+  attr_accessible :text, :title, :base_id, :slug
   
   belongs_to :base, class_name: "Text"
   belongs_to :user, inverse_of: :texts
@@ -35,6 +35,8 @@ class Text < ActiveRecord::Base
   end
   
   def commit_text
+    return if text.blank?
+    
     repo = Rugged::Repository.new(repository_path.to_s)
     
     oid = repo.write(self.text, :blob)

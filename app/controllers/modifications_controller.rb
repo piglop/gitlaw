@@ -42,6 +42,7 @@ class ModificationsController < ApplicationController
   # POST /modifications
   # POST /modifications.json
   def create
+    @modification.user = current_user
     respond_to do |format|
       if @modification.save
         format.html { redirect_to expanded_modification_path(@modification), flash: {success: t("modifications.created")} }

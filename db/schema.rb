@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130504151333) do
+ActiveRecord::Schema.define(:version => 20130510073201) do
 
   create_table "featured_texts", :force => true do |t|
     t.integer  "text_id"
@@ -27,12 +27,14 @@ ActiveRecord::Schema.define(:version => 20130504151333) do
     t.string   "title"
     t.text     "motivations"
     t.text     "text"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "slug"
+    t.integer  "repository_id"
   end
 
   add_index "modifications", ["original_id"], :name => "index_modifications_on_original_id"
+  add_index "modifications", ["repository_id"], :name => "index_modifications_on_repository_id"
   add_index "modifications", ["slug"], :name => "index_modifications_on_slug"
   add_index "modifications", ["user_id"], :name => "index_modifications_on_user_id"
 
@@ -56,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20130504151333) do
     t.string   "slug"
   end
 
-  add_index "texts", ["slug"], :name => "index_texts_on_slug", :unique => true
+  add_index "texts", ["slug"], :name => "index_texts_on_slug"
   add_index "texts", ["user_id"], :name => "index_texts_on_user_id"
 
   create_table "users", :force => true do |t|
