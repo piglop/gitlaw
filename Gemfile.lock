@@ -17,6 +17,13 @@ GIT
   specs:
     diffy (2.1.4)
 
+GIT
+  remote: git://github.com/piglop/rugged.git
+  revision: 98122c9399945f2acdabb9311c70d361de900363
+  branch: piglop
+  specs:
+    rugged (0.18.0.b1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -179,7 +186,6 @@ GEM
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
-    rugged (0.18.0.gh.de28323)
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -252,7 +258,7 @@ DEPENDENCIES
   rails (~> 3.2.12)
   rolify
   rspec-rails (~> 2.0)
-  rugged (= 0.18.0.gh.de28323)
+  rugged!
   sass-rails (~> 3.2.3)
   secret_token_replacer!
   seed-fu

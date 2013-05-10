@@ -76,4 +76,4 @@ gem 'seed-fu'
 gem 'friendly_id', "~> 4.0.9"
 gem 'diff_match_patch'
 gem 'diff-lcs'
-gem 'rugged', git: 'git://github.com/piglop/rugged.git', branch: 'entry_name_encoding'
+gem 'rugged', git: 'git://github.com/piglop/rugged.git', branch: 'piglop'
