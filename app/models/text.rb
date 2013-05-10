@@ -15,8 +15,7 @@ class Text < ActiveRecord::Base
     self.text = self.text.gsub("\r\n", "\n") if self.text
   end
   
-  after_create :create_repository
-  after_save :commit_text
+  before_save :commit_text
   
   def repository_path
     raise "User is required" unless user
@@ -35,6 +34,8 @@ class Text < ActiveRecord::Base
   end
   
   def commit_text
+    create_repository unless repository_path.exist?
+    
     return if text.blank?
     
     repo = Rugged::Repository.new(repository_path.to_s)
@@ -64,5 +65,8 @@ class Text < ActiveRecord::Base
     else
       ref = Rugged::Reference.create(repo, "refs/heads/master", new_sha1)
     end
+    
+    self.head = new_sha1
+    
   end
 end
