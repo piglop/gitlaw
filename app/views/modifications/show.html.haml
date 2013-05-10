@@ -1,5 +1,6 @@
 - content_for(:title, t(".title", name: @modification.id))
-- add_crumb @modification.original.title, @modification.original
+- add_crumb @modification.user.display_name, user_path(@modification.user)
+- add_crumb @modification.repository.title, expanded_text_path(@modification.repository)
 - add_crumb @modification.title
 
 .row

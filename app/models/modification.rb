@@ -1,29 +1,28 @@
 class Modification < ActiveRecord::Base
   attr_accessible :description, :text, :title, :original_id
   
-  belongs_to :original, class_name: "Text"
+  belongs_to :original, class_name: "Modification"
   belongs_to :repository, class_name: "Text"
   
   delegate :user, to: :repository
 
+  before_save :commit_text
+  
   extend FriendlyId
   friendly_id :slug_base, use: [:slugged, :scoped], scope: :repository
 
-  before_save :create_repository
-  after_save :commit_text
-  
   def slug_base
     title.presence || "master"
   end
   
-  def create_repository
+  def create_repository(user)
     return if repository
     
     raise "Original required" unless original
     raise "User required" unless user
-    repository = build_repository(title: original.title, slug: original.slug)
-    repository.user = user
-    repository.save!
+    self.repository = user.texts.where(slug: original.repository.slug).first_or_initialize(title: original.repository.title)
+    self.repository.user = user
+    self.repository.save!
   end
 
   def commit_text
@@ -48,7 +47,7 @@ class Modification < ActiveRecord::Base
       options[:parents] = [original.head]
       
       unless repo.exists?(original.head)
-        original_repository = Rugged::Repository.new(original.repository_path.to_s)
+        original_repository = Rugged::Repository.new(original.repository.repository_path.to_s)
         walker = Rugged::Walker.new(original_repository)
         walker.sorting(Rugged::SORT_TOPO | Rugged::SORT_REVERSE)
         walker.push(original.head)

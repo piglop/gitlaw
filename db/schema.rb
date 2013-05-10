@@ -52,12 +52,12 @@ ActiveRecord::Schema.define(:version => 20130510122818) do
 
   create_table "texts", :force => true do |t|
     t.string   "title"
+    t.text     "text"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
     t.string   "slug"
     t.string   "head"
-    t.text     "text"
   end
 
   add_index "texts", ["slug"], :name => "index_texts_on_slug"

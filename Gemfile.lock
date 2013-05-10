@@ -19,8 +19,9 @@ GIT
 
 GIT
   remote: git://github.com/piglop/rugged.git
-  revision: 98122c9399945f2acdabb9311c70d361de900363
-  branch: piglop
+  revision: 12f937696383e0ee9677088de5e27f4075957df3
+  branch: entry_name_encoding
+  submodules: true
   specs:
     rugged (0.18.0.b1)
 

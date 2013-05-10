@@ -26,7 +26,7 @@ class ModificationsController < ApplicationController
   # GET /modifications/new.json
   def new
     if params[:original_id].present?
-      @modification.original = Text.accessible_by(current_ability).find(params[:original_id])
+      @modification.original = Modification.accessible_by(current_ability).find(params[:original_id])
       @modification.text = params[:text] || @modification.original.try(:text)
     end
     respond_to do |format|
@@ -42,8 +42,11 @@ class ModificationsController < ApplicationController
   # POST /modifications
   # POST /modifications.json
   def create
-    @modification.user = current_user
     respond_to do |format|
+      if params[:original_id].present?
+        @modification.original = Modification.accessible_by(current_ability).find(params[:original_id])
+      end
+      @modification.create_repository(current_user)
       if @modification.save
         format.html { redirect_to expanded_modification_path(@modification), flash: {success: t("modifications.created")} }
         format.json { render json: @modification, status: :created, location: @modification }

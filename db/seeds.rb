@@ -16,9 +16,14 @@ end.first
 french_constitution = Text.seed :slug do |s|
   s.title = "Constitution française"
   s.slug = "constitution-francaise"
-  s.text = Rails.root.join('db', 'french_constitution.txt').read
   s.user = france
 end.first
+
+official = Modification.seed :slug do |s|
+  s.slug = "master"
+  s.repository = french_constitution
+  s.text = Rails.root.join('db', 'french_constitution.txt').read
+end
 
 FeaturedText.seed :text_id do |s|
   s.text_id = french_constitution.id
