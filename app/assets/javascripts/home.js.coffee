@@ -23,3 +23,15 @@ $(document).ready ->
       setupAffix()
         
       bar.addClass("affix") if wasAffix
+
+  $(".diff-group.same").css("cursor", "pointer").click ->
+    group = $(this)
+    lines = group.find(".lines")
+    lineCount = group.find(".line-count")
+    if lines.is(":hidden")
+      lines.slideDown()
+      lineCount.slideUp()
+    else
+      lines.slideUp()
+      lineCount.slideDown()
+    
