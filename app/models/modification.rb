@@ -1,17 +1,20 @@
 class Modification < ActiveRecord::Base
-  attr_accessible :motivations, :text, :title, :original_id
+  attr_accessible :description, :text, :title, :original_id
   
-  belongs_to :user
   belongs_to :original, class_name: "Text"
   belongs_to :repository, class_name: "Text"
+  
+  delegate :user, to: :repository
 
   extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :slug_base, use: :slugged
 
-  validates_presence_of :user
-  
   before_save :create_repository
   after_save :commit_text
+  
+  def slug_base
+    title.presence || "master"
+  end
   
   def create_repository
     return if repository
@@ -30,7 +33,7 @@ class Modification < ActiveRecord::Base
     
     oid = repo.write(self.text, :blob)
     index = Rugged::Index.new
-    index.add(:path => "#{original.title}.txt", :oid => oid, :mode => 0100644)
+    index.add(:path => "#{repository.title}.txt", :oid => oid, :mode => 0100644)
 
     options = {}
     options[:tree] = index.write_tree(repo)
@@ -41,7 +44,7 @@ class Modification < ActiveRecord::Base
 
     if head
       options[:parents] = [head]
-    else
+    elsif original
       options[:parents] = [original.head]
       
       unless repo.exists?(original.head)
@@ -66,11 +69,14 @@ class Modification < ActiveRecord::Base
           Rugged::Commit.create(repo, new_commit)
         end
       end
+    else
+      options[:parents] = []
     end
 
     new_sha1 = Rugged::Commit.create(repo, options)
     
-    ref_path = "refs/heads/#{slug}"
+    branch = slug
+    ref_path = "refs/heads/#{branch}"
     ref = Rugged::Reference.lookup(repo, ref_path)
     if ref
       ref.set_target(new_sha1)
@@ -79,5 +85,9 @@ class Modification < ActiveRecord::Base
     end
     
     self.head = new_sha1
+  end
+  
+  def master?
+    slug == "master"
   end
 end

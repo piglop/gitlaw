@@ -17,16 +17,17 @@
   .span9
     %h1= @text.title
     .text-text
-      - @text.text.split(/\n/).each do |line|
-        - case line
-          - when /^Préambule/
-            %h3.preamble= line
-          - when /^Titre /
-            %h2.title= line
-          - when /^Article /
-            %h3.article= line
-          - when /^- /
-            %p.list-item= line
-          - else
-            %p.paragraph= line
+      - if @text.master
+        - @text.master.text.split(/\n/).each do |line|
+          - case line
+            - when /^Préambule/
+              %h3.preamble= line
+            - when /^Titre /
+              %h2.title= line
+            - when /^Article /
+              %h3.article= line
+            - when /^- /
+              %p.list-item= line
+            - else
+              %p.paragraph= line
 

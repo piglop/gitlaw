@@ -7,4 +7,12 @@
 
 .row
   .span12
-    = render :partial => "form"
+    = bootstrap_form_for @text, :html => { :class => 'form-horizontal' } do |f|
+      = f.text_field :title, class: 'input-block-level'
+      = f.fields_for :modifications, Modification.new do |fields|
+        = fields.text_area :description, class: 'input-block-level', rows: 3
+        = fields.text_area :text, class: 'input-block-level', rows: 10, label: t(".modification_text")
+      
+      .form-actions
+        = f.submit t('.submit'), :class => 'btn btn-primary'
+        = link_to t('.cancel'), texts_path, :class => 'btn'

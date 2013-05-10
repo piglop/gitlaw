@@ -1,11 +1,13 @@
 class Text < ActiveRecord::Base
-  attr_accessible :text, :title, :base_id, :slug
+  attr_accessible :text, :title, :base_id, :slug, :modifications_attributes
   
   belongs_to :base, class_name: "Text"
   belongs_to :user, inverse_of: :texts
   
-  has_many :modifications, inverse_of: :original, foreign_key: :original_id
+  has_many :modifications, inverse_of: :repository, foreign_key: :repository_id
+  accepts_nested_attributes_for :modifications
   
+  validates_presence_of :user
   after_validation :clean_text
   
   extend FriendlyId
@@ -68,5 +70,9 @@ class Text < ActiveRecord::Base
     
     self.head = new_sha1
     
+  end
+  
+  def master
+    modifications.detect(&:master?)
   end
 end

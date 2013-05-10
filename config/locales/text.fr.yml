@@ -35,6 +35,8 @@ fr:
 
     new:
       title: Création d'un nouveau texte
+      modification_text: Texte
+      submit: Créer le texte
       
     form:
       submit: Enregistrer
