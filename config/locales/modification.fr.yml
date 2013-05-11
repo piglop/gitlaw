@@ -55,8 +55,8 @@ fr:
       modified_text: Texte modifié
       line_count:
         zero: "[Vide]"
-        one: "[⋯ 1 ligne ⋯]"
-        other: "[⋯ %{count} lignes ⋯]"
+        one: "[⋯ 1 ligne identique ⋯]"
+        other: "[⋯ %{count} lignes identiques ⋯]"
       
     action_bar:
       show: Voir le texte complet
