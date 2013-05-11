@@ -64,6 +64,7 @@ class Modification < ActiveRecord::Base
             builder << entry
           end
           new_commit[:tree] = builder.write(repo)
+          new_commit[:parents] = new_commit[:parents].map(&:oid)
           
           Rugged::Commit.create(repo, new_commit)
         end

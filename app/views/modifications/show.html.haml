@@ -6,9 +6,18 @@
 .row
   .span2.affix-action-bar-parent
     .affix-action-bar
+      = link_to t('.new_modification'), new_modification_path(original_id: @modification.id), :class => 'btn btn-primary btn-block'
       = link_to t('.show_original'), expanded_modification_path(@modification.original), :class => 'btn btn-block' if can? :read, @modification.original
       = link_to t('.edit'), edit_modification_path(@modification), :class => 'btn btn-block' if can? :update, @modification
       = link_to t('.destroy'), modification_path(@modification), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger btn-block' if can? :destroy, @modification
+      - modifications = ::Text.where(slug: @modification.repository.slug).includes(:modifications).map(&:modifications).flatten(1) - [@modification]
+      - if modifications.any?
+        %h3= t(".modifications")
+        %ul
+          - modifications.each do |modification|
+            %li
+              = link_to_modification(modification)
+              = "(#{link_to_user(modification.repository.user)})".html_safe
       
   .span10
     .row

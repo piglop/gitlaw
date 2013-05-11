@@ -53,13 +53,13 @@ Feature: Edit a text
     And I let the field "Description" empty
     And I replace "proclame son attachement" with "rappelle son attachement" in "Texte modifié"
     And I click on "Enregistrer"
-    Then I should see "Constitution française / Nous somes déjà attachés"
+    Then I should see "Constitution française / Nous sommes déjà attachés"
     And I should see "Le peuple français proclame son attachement aux Droits de l'Homme"
     And I should see "Le peuple français rappelle son attachement aux Droits de l'Homme"
-    And the word "proclame" should be highlighted
-    And the word "rappelle" should be highlighted
+    And the word "proclam" should be highlighted
+    And the word "rappell" should be highlighted
     And the current path should be "/mike/constitution-francaise/nous-sommes-deja-attaches"
     
     When I click on "Voir l'original"
     Then the current path should be "/bobby/constitution-francaise/pas-de-ceremonie"
-    And I should see "Nous somes déjà attachés"
+    And I should see "Nous sommes déjà attachés"
