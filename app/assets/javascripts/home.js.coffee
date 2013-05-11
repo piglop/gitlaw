@@ -34,4 +34,12 @@ $(document).ready ->
     else
       lines.slideUp()
       lineCount.slideDown()
-    
+  
+  $(document).on "input change", "#text_title", ->
+    input = $(this)
+    slugInput = input.closest("form").find("#text_slug")
+    unless slugInput.hasClass("user-changed")
+      slugInput.val(URLify(input.val()))
+
+  $(document).on "input change", "#text_slug", ->
+    $(this).addClass("user-changed")
