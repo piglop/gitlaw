@@ -21,21 +21,30 @@ Feature: Edit a text
 
     When I fill "Titre de la variante" with "Pas de cérémonie"
     And I fill "Description" with "Nous ne sommes pas solennels."
-    And I replace "proclame solennellement son attachement" with "proclame son attachement" in "Texte modifié"
+    And I replace "proclame solennellement son attachement" with "proclame officiellement son attachement" in "Texte modifié"
     And I click on "Enregistrer"
     Then I should see "Constitution française / Pas de cérémonie"
     And I should see "Le peuple français proclame solennellement son attachement aux Droits de l'Homme"
-    And I should see "Le peuple français proclame son attachement aux Droits de l'Homme"
-    And the word "solennellement" should be highlighted
+    And I should see "Le peuple français proclame officiellement son attachement aux Droits de l'Homme"
+    And the word "solenn" should be highlighted
+    And the word "offici" should be highlighted
     And the current path should be "/bobby/constitution-francaise/pas-de-ceremonie"
 
+    When I click on "Modifier"
+    And I replace "proclame officiellement son attachement" with "proclame son attachement" in "Texte modifié"
+    And I click on "Enregistrer"
+    Then I should see "Le peuple français proclame solennellement son attachement aux Droits de l'Homme"
+    And I should see "Le peuple français proclame son attachement aux Droits de l'Homme"
+    And the word "solennellement" should be highlighted
+    
     When I click on "Voir l'original"
     Then the current path should be "/france/constitution-francaise"
     And I should see "Pas de cérémonie"
 
     Then there should be a git repository in "db/repositories/test/bobby/constitution-francaise.git"
     And the branch "pas-de-ceremonie" should have a file "Constitution française.txt" containing "proclame son attachement"
-    And the revision "pas-de-ceremonie^" should have a file "Constitution française.txt" containing "proclame solennellement son attachement"
+    And the revision "pas-de-ceremonie^" should have a file "Constitution française.txt" containing "proclame officiellement son attachement"
+    And the revision "pas-de-ceremonie^^" should have a file "Constitution française.txt" containing "proclame solennellement son attachement"
 
 
     When I log out
