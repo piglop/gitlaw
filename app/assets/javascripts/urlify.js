@@ -1,3 +1,5 @@
+// Source: https://github.com/django/django/blob/master/django/contrib/admin/static/admin/js/urlify.js
+
 var LATIN_MAP = {
     'À': 'A', 'Á': 'A', 'Â': 'A', 'Ã': 'A', 'Ä': 'A', 'Å': 'A', 'Æ': 'AE', 'Ç':
     'C', 'È': 'E', 'É': 'E', 'Ê': 'E', 'Ë': 'E', 'Ì': 'I', 'Í': 'I', 'Î': 'I',
