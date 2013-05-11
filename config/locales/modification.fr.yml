@@ -48,6 +48,7 @@ fr:
       destroy: *destroy
       confirm: *confirm
       back: Retour
+      show_original: Voir l'original
       original_text: Texte original
       modified_text: Texte modifié
       line_count:

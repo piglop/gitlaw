@@ -6,8 +6,9 @@
 .row
   .span2.affix-action-bar-parent
     .affix-action-bar
-      = link_to t('.edit'), edit_modification_path(@modification), :class => 'btn' if can? :update, @modification
-      = link_to t('.destroy'), modification_path(@modification), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger' if can? :destroy, @modification
+      = link_to t('.show_original'), expanded_modification_path(@modification.original), :class => 'btn btn-block' if can? :read, @modification.original
+      = link_to t('.edit'), edit_modification_path(@modification), :class => 'btn btn-block' if can? :update, @modification
+      = link_to t('.destroy'), modification_path(@modification), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger btn-block' if can? :destroy, @modification
       
   .span10
     .row

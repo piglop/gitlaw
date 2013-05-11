@@ -29,8 +29,9 @@ Feature: Edit a text
     And the word "solennellement" should be highlighted
     And the current path should be "/bobby/constitution-francaise/pas-de-ceremonie"
 
-    When I click on "Constitution française"
-    Then I should see "Pas de cérémonie"
+    When I click on "Voir l'original"
+    Then the current path should be "/france/constitution-francaise"
+    And I should see "Pas de cérémonie"
 
     Then there should be a git repository in "db/repositories/test/bobby/constitution-francaise.git"
     And the branch "pas-de-ceremonie" should have a file "Constitution française.txt" containing "proclame son attachement"
