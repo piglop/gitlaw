@@ -1,4 +1,6 @@
 class Text < ActiveRecord::Base
+  include ActiveSupport::Inflector
+
   attr_accessible :text, :title, :base_id, :slug, :modifications_attributes
   
   belongs_to :base, class_name: "Text"
@@ -8,16 +10,22 @@ class Text < ActiveRecord::Base
   accepts_nested_attributes_for :modifications
   
   validates_presence_of :user
+  validates_uniqueness_of :slug, scope: :user_id
+
+  before_validation :initialize_slug
   after_validation :clean_text
+  before_save :commit_text
   
   extend FriendlyId
-  friendly_id :title, use: :scoped, scope: :user
+  friendly_id :slug, use: []
   
   def clean_text
     self.text = self.text.gsub("\r\n", "\n") if self.text
   end
-  
-  before_save :commit_text
+
+  def initialize_slug
+    self.slug = transliterate(title).downcase.strip.gsub(/\s+/, '-') if slug.blank? and title.present?
+  end
   
   def repository_path
     raise "User is required" unless user

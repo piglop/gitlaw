@@ -18,6 +18,14 @@ fr:
         created_at: Date de création
         updated_at: Dernière mise à jour
         user: Auteur
+        slug: Identifiant
+        
+    errors:
+      models:
+        text:
+          attributes:
+            slug:
+              taken: "Cet identifiant est déjà utilisé par un de vos textes"
 
   texts:
     index:

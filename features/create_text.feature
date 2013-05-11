@@ -21,3 +21,21 @@ Feature: Create a text
     Then I should see "France / Constitution française"
     And the current path should be "/france/constitution-francaise"
     
+  Scenario: Create duplicate text
+    Given I'm logged in as "france"
+    And there's a text "constitution" owned by "france"
+
+    When I go to the home page
+    And I click on "Créer un nouveau texte"
+
+    When I fill "Titre" with "Constitution"
+    And I click on "Créer le texte"
+    
+    Then I should see "Cet identifiant est déjà utilisé"
+    And the field "Identifiant" should be filled with "constitution"
+    
+    When I fill "Identifiant" with "constitution2"
+    And I click on "Créer le texte"
+
+    Then I should see "france / Constitution"
+    And the current path should be "/france/constitution2"

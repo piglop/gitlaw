@@ -4,6 +4,24 @@ Given(/^there's a user "(.*?)" with identifier "(.*?)"$/) do |arg1, identifier|
   User.seed(:name, name: arg1, slug: identifier)
 end
 
+Given(/^I'm logged in as "(.*?)"$/) do |arg1|
+  user = User.seed(:name, name: arg1, slug: arg1, email: "#{arg1}@example.com", password: "password", password_confirmation: "password").first
+  visit '/'
+  click_on "Connexion"
+  fill_in "e-mail", with: user.email
+  fill_in "Mot de passe", with: "password"
+  click_button "Connexion"
+end
+
+Given(/^there's a text "(.*?)" owned by "(.*?)"$/) do |arg1, arg2|
+  text = Text.new
+  text.title = arg1
+  text.slug = arg1
+  text.modifications_attributes = [{text: ""}]
+  text.user_id = User.find(arg2).id
+  text.save!
+end
+
 Given(/^the text "(.*?)" is owned by user "(.*?)"$/) do |arg1, arg2|
   Text.where(title: arg1).first.update_attribute(:user_id, User.where(name: arg2).first.id)
 end
@@ -52,6 +70,11 @@ When(/^I replace "(.*?)" with "(.*?)" in "(.*?)"$/) do |old_text, new_text, fiel
   text = text.sub(old_text, new_text)
   fill_in field, with: text
 end
+
+Then(/^the field "(.*?)" should be filled with "(.*?)"$/) do |arg1, arg2|
+  find_field(arg1).value.should eq(arg2)
+end
+
 
 Then(/^the word "(.*?)" should be highlighted$/) do |arg1|
   all("strong").map(&:text).join(" ").should include(arg1)
