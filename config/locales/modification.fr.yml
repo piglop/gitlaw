@@ -34,6 +34,7 @@ fr:
 
     edit:
       title: "Modification de la variante %{name}"
+      breadcrumb_title: "Modification"
 
     new:
       title: Création d'une variante

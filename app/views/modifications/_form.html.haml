@@ -1,8 +1,8 @@
 = bootstrap_form_for @modification, :html => { :class => 'form-horizontal' } do |f|
   = f.hidden_field :original_id
-  = f.text_field :title
-  = f.text_area :description
-  = f.text_area :text
+  = f.text_field :title, class: 'input-block-level'
+  = f.text_area :description, class: 'input-block-level', rows: 3
+  = f.text_area :text, class: 'input-block-level', rows: 10
   
   .form-actions
     = f.submit t('.submit'), :class => 'btn btn-primary'
