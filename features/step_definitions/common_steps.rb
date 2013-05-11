@@ -88,6 +88,11 @@ When(/^I fill "(.*?)" with the content of "(.*?)"$/) do |arg1, arg2|
   fill_in arg1, with: Rails.root.join(arg2).read
 end
 
+When(/^I let the field "(.*?)" empty$/) do |arg1|
+  find_field(arg1).value.should eq("")
+end
+
+
 Then(/^the current path should be "(.*?)"$/) do |arg1|
   URI.parse(current_url).path.should == arg1
 end
@@ -103,3 +108,8 @@ Then(/^the (branch|revision) "(.*?)" should have a file "(.*?)" containing "(.*?
   data = @repository.read(file[:oid]).data
   data.should include(content)
 end
+
+When(/^I log out$/) do
+  click_on "Déconnexion"
+end
+
