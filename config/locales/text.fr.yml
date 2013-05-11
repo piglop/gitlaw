@@ -45,6 +45,7 @@ fr:
       title: Création d'un nouveau texte
       modification_text: Texte
       submit: Créer le texte
+      slug_placeholder: "Généré automatiquement"
       
     form:
       submit: Enregistrer

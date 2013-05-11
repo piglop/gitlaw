@@ -42,4 +42,8 @@ $(document).ready ->
       slugInput.val(URLify(input.val()))
 
   $(document).on "input change", "#text_slug", ->
-    $(this).addClass("user-changed")
+    input = $(this)
+    if input.val() == ""
+      input.removeClass("user-changed")
+    else
+      input.addClass("user-changed")
