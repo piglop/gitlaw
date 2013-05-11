@@ -46,18 +46,26 @@ fr:
 
     show:
       title: "%{name}"
-      edit: *edit
-      destroy: *destroy
-      confirm: *confirm
       back: Retour
-      show_original: Voir l'original
+      
+    compare:
+      title: "%{name}"
+      breadcrumb_title: "Comparaison avec l'original"
       original_text: Texte original
       modified_text: Texte modifié
       line_count:
         zero: "[Vide]"
         one: "[⋯ 1 ligne ⋯]"
         other: "[⋯ %{count} lignes ⋯]"
+      
+    action_bar:
+      show: Voir le texte complet
+      show_original: Voir l'original
       new_modification: "Proposer une variante"
+      compare_original: Comparer avec l'original
+      edit: *edit
+      destroy: *destroy
+      confirm: *confirm
       
     created: La variante a été créé.
     updated: La variante a été modifiée.

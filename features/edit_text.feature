@@ -24,21 +24,22 @@ Feature: Edit a text
     And I replace "proclame solennellement son attachement" with "proclame officiellement son attachement" in "Texte modifié"
     And I click on "Enregistrer"
     Then I should see "Constitution française / Pas de cérémonie"
-    And I should see "Le peuple français proclame solennellement son attachement aux Droits de l'Homme"
     And I should see "Le peuple français proclame officiellement son attachement aux Droits de l'Homme"
-    And the word "solenn" should be highlighted
-    And the word "offici" should be highlighted
     And the current path should be "/bobby/constitution-francaise/pas-de-ceremonie"
 
     When I click on "Modifier"
     And I replace "proclame officiellement son attachement" with "proclame son attachement" in "Texte modifié"
     And I click on "Enregistrer"
+    Then I should see "Le peuple français proclame son attachement aux Droits de l'Homme"
+    
+    When I click on "Comparer avec l'original"
     Then I should see "Le peuple français proclame solennellement son attachement aux Droits de l'Homme"
     And I should see "Le peuple français proclame son attachement aux Droits de l'Homme"
     And the word "solennellement" should be highlighted
-    
+    And the current path should be "/bobby/constitution-francaise/pas-de-ceremonie/compare"
+
     When I click on "Voir l'original"
-    Then the current path should be "/france/constitution-francaise"
+    Then the current path should be "/france/constitution-francaise/master"
     And I should see "Pas de cérémonie"
 
     Then there should be a git repository in "db/repositories/test/bobby/constitution-francaise.git"
@@ -63,11 +64,16 @@ Feature: Edit a text
     And I replace "proclame son attachement" with "rappelle son attachement" in "Texte modifié"
     And I click on "Enregistrer"
     Then I should see "Constitution française / Nous sommes déjà attachés"
+    And I should see "Le peuple français rappelle son attachement aux Droits de l'Homme"
+    And the current path should be "/mike/constitution-francaise/nous-sommes-deja-attaches"
+    
+    When I click on "Comparer avec l'original"
+    Then I should see "Constitution française / Nous sommes déjà attachés / Comparaison avec l'original"
     And I should see "Le peuple français proclame son attachement aux Droits de l'Homme"
     And I should see "Le peuple français rappelle son attachement aux Droits de l'Homme"
     And the word "proclam" should be highlighted
     And the word "rappell" should be highlighted
-    And the current path should be "/mike/constitution-francaise/nous-sommes-deja-attaches"
+    And the current path should be "/mike/constitution-francaise/nous-sommes-deja-attaches/compare"
     
     When I click on "Voir l'original"
     Then the current path should be "/bobby/constitution-francaise/pas-de-ceremonie"

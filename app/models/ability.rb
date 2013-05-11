@@ -8,7 +8,7 @@ class Ability
       can :manage, :all
     else
       can :read, :all
-      can :compare_with_base, Text
+      can :compare, Modification
       
       if user
         can [:create, :update], Text, user_id: user.id

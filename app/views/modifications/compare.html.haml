@@ -1,0 +1,27 @@
+- content_for(:title, t(".title", name: @modification.title))
+- add_crumb @modification.user.display_name, user_path(@modification.user)
+- add_crumb @modification.repository.title, expanded_text_path(@modification.repository)
+- add_crumb @modification.title, expanded_modification_path(@modification)
+- add_crumb t(".breadcrumb_title")
+
+.row
+  = render "modifications/action_bar", span: 2, except: [:compare]
+      
+  .span10
+    .row
+      .span5
+        %h2= t(".original_text")
+      .span5
+        %h2= t(".modified_text")
+    .text-diff
+      - diff_lines(@modification.original.text, @modification.text).each do |kind, lines|
+        .diff-group{class: kind}
+          .row.line-count
+            .span10= t(".line_count", count: lines.count)
+          .lines
+            - lines.each do |old, new|
+              .row
+                .span5
+                  %p!= old
+                .span5
+                  %p!= new

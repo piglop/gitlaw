@@ -1,23 +1,10 @@
-- content_for(:title, t(".title", name: @modification.id))
+- content_for(:title, t(".title", name: @modification.title))
 - add_crumb @modification.user.display_name, user_path(@modification.user)
 - add_crumb @modification.repository.title, expanded_text_path(@modification.repository)
 - add_crumb @modification.title
 
 .row
-  .span2.affix-action-bar-parent
-    .affix-action-bar
-      = link_to t('.edit'), edit_modification_path(@modification), :class => 'btn btn-primary btn-block' if can? :update, @modification
-      = link_to t('.new_modification'), new_modification_path(original_id: @modification.id), :class => 'btn btn-primary btn-block'
-      = link_to t('.show_original'), expanded_modification_path(@modification.original), :class => 'btn btn-block' if @modification.original and can? :read, @modification.original
-      = link_to t('.destroy'), modification_path(@modification), :method => "delete", :confirm => t('.confirm'), :class => 'btn btn-danger btn-block' if can? :destroy, @modification
-      - modifications = ::Text.where(slug: @modification.repository.slug).includes(:modifications).map(&:modifications).flatten(1) - [@modification]
-      - if modifications.any?
-        %h3= t(".modifications")
-        %ul
-          - modifications.each do |modification|
-            %li
-              = link_to_modification(modification)
-              = "(#{link_to_user(modification.repository.user)})".html_safe
+  = render "modifications/action_bar", span: 3, except: [:show]
       
   .span9
     %h1.text-title= @modification.repository.title

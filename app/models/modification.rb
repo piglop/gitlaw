@@ -1,4 +1,6 @@
 class Modification < ActiveRecord::Base
+  include ActiveSupport::Inflector
+
   attr_accessible :description, :text, :title, :original_id, :slug
   
   belongs_to :original, class_name: "Modification"

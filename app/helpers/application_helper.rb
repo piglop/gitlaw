@@ -25,6 +25,10 @@ module ApplicationHelper
     full_modification_path(user_id: modification.user.to_param, text_id: modification.repository.to_param, id: modification.to_param)
   end
   
+  def compare_modification_path(modification)
+    full_compare_modification_path(user_id: modification.user.to_param, text_id: modification.repository.to_param, id: modification.to_param)
+  end
+  
   def expanded_text_path(text)
     full_text_path(user_id: text.user.to_param, id: text.to_param)
   end

@@ -1,5 +1,10 @@
 Gitlaw::Application.routes.draw do
-  resources :modifications
+  resources :modifications do
+    member do
+      get :compare
+    end
+  end
+  
   resources :texts
   resources :users
 
@@ -8,6 +13,7 @@ Gitlaw::Application.routes.draw do
   root :to =>  "home#index"
   
   match ':user_id/:text_id/:id' => 'modifications#show', as: :full_modification
+  match ':user_id/:text_id/:id/compare' => 'modifications#compare', as: :full_compare_modification
   match ':user_id/:id' => 'texts#show', as: :full_text
 
   # The priority is based upon order of creation:

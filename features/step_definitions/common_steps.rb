@@ -30,7 +30,7 @@ Given(/^there's a text "(.*?)" with identifier "(.*?)" and the content of "(.*?)
   text = Text.new
   text.title = arg1
   text.slug = identifier
-  text.modifications_attributes = [{text: File.read(arg2)}]
+  text.modifications_attributes = [{slug: 'master', title: 'Variante principale', text: File.read(arg2)}]
   text.user_id = User.find(user).id
   text.save!
 end
