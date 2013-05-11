@@ -18,8 +18,8 @@ Feature: Create a text
     And I fill "Texte" with the content of "db/french_constitution.txt"
     And I click on "Créer le texte"
     
-    Then I should see "France / Constitution française"
-    And the current path should be "/france/constitution-francaise"
+    Then I should see "France / Constitution française / Variante principale"
+    And the current path should be "/france/constitution-francaise/master"
     
   Scenario: Create duplicate text
     Given I'm logged in as "france"
@@ -37,5 +37,5 @@ Feature: Create a text
     When I fill "Identifiant" with "constitution2"
     And I click on "Créer le texte"
 
-    Then I should see "france / Constitution"
-    And the current path should be "/france/constitution2"
+    Then I should see "france / Constitution / Variante principale"
+    And the current path should be "/france/constitution2/master"

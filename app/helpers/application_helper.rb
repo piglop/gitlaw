@@ -22,11 +22,7 @@ module ApplicationHelper
   end
   
   def expanded_modification_path(modification)
-    if modification.master?
-      full_text_path(user_id: modification.user.to_param, id: modification.repository.to_param)
-    else
-      full_modification_path(user_id: modification.user.to_param, text_id: modification.repository.to_param, id: modification.to_param)
-    end
+    full_modification_path(user_id: modification.user.to_param, text_id: modification.repository.to_param, id: modification.to_param)
   end
   
   def expanded_text_path(text)

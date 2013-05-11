@@ -46,6 +46,7 @@ fr:
       modification_text: Texte
       submit: Créer le texte
       slug_placeholder: "Généré automatiquement"
+      master_modification: "Variante principale"
       
     form:
       submit: Enregistrer

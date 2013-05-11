@@ -10,7 +10,9 @@
     = bootstrap_form_for @text, :html => { :class => 'form-horizontal' } do |f|
       = f.text_field :title, class: 'input-block-level'
       = f.text_field :slug, class: 'input-block-level', placeholder: t(".slug_placeholder", default: "")
-      = f.fields_for :modifications, Modification.new do |fields|
+      = f.fields_for :modifications, Modification.new(slug: 'master', title: t(".master_modification")) do |fields|
+        = fields.hidden_field :title
+        = fields.hidden_field :slug
         = fields.text_area :description, class: 'input-block-level', rows: 3
         = fields.text_area :text, class: 'input-block-level', rows: 10, label: t(".modification_text")
       

@@ -1,5 +1,5 @@
 class Modification < ActiveRecord::Base
-  attr_accessible :description, :text, :title, :original_id
+  attr_accessible :description, :text, :title, :original_id, :slug
   
   belongs_to :original, class_name: "Modification"
   belongs_to :repository, class_name: "Text"
@@ -8,13 +8,13 @@ class Modification < ActiveRecord::Base
 
   before_save :commit_text
   
+  before_validation :initialize_slug
   extend FriendlyId
-  friendly_id :slug_base, use: [:slugged, :scoped], scope: :repository
-
-  def slug_base
-    title.presence || "master"
+  friendly_id :slug, use: []
+  def initialize_slug
+    self.slug = transliterate(title).downcase.strip.gsub(/\s+/, '-') if slug.blank? and title.present?
   end
-  
+
   def create_repository(user)
     return if repository
     

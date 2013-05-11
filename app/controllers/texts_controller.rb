@@ -47,7 +47,7 @@ class TextsController < ApplicationController
   def create
     respond_to do |format|
       if @text.save
-        format.html { redirect_to expanded_text_path(@text), flash: {success: t("texts.created")} }
+        format.html { redirect_to expanded_modification_path(@text.modifications.first), flash: {success: t("texts.created")} }
         format.json { render json: @text, status: :created, location: @text }
       else
         format.html { render action: "new" }

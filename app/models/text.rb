@@ -12,17 +12,16 @@ class Text < ActiveRecord::Base
   validates_presence_of :user
   validates_uniqueness_of :slug, scope: :user_id
 
-  before_validation :initialize_slug
   after_validation :clean_text
   before_save :commit_text
-  
-  extend FriendlyId
-  friendly_id :slug, use: []
   
   def clean_text
     self.text = self.text.gsub("\r\n", "\n") if self.text
   end
 
+  before_validation :initialize_slug
+  extend FriendlyId
+  friendly_id :slug, use: []
   def initialize_slug
     self.slug = transliterate(title).downcase.strip.gsub(/\s+/, '-') if slug.blank? and title.present?
   end
